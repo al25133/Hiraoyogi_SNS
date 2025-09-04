@@ -14,10 +14,10 @@ export default function PostPage() {
     // ここで実際のAPI呼び出しを行う
     setIsSubmitted(true)
 
-    // 3秒後にフィードページにリダイレクト
+    // 1秒後にフィードページにリダイレクト
     setTimeout(() => {
       window.location.href = "/Hiraoyogi_SNS/feed"
-    }, 3000)
+    }, 1000)
   }
 
   if (isSubmitted) {
