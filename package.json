@@ -2,15 +2,14 @@
   "name": "generational-sns",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://al25133.github.io/HiraoyogiSNS",
-"scripts": {
-  "build": "next build",
-  "dev": "next dev",
-  "start": "next start",
-  "lint": "next lint",
-  "deploy": "npm run build && touch out/.nojekyll"
-}
-
+  "homepage": "https://al25133.github.io/Hiraoyogi_SNS",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "npm run build && touch out/.nojekyll"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
