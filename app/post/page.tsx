@@ -16,7 +16,7 @@ export default function PostPage() {
 
     // 3秒後にフィードページにリダイレクト
     setTimeout(() => {
-      window.location.href = "/HiraoyogiSNS/feed"
+      window.location.href = "/Hiraoyogi_SNS/feed"
     }, 3000)
   }
 
