@@ -74,7 +74,6 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
               required
             />
           </div>
-
                     {/* カテゴリー */}
           <div className="space-y-2">
             <Label htmlFor="category" className="text-base font-medium">
@@ -104,7 +103,7 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
             </Select>
           
             {/* hidden input → ブラウザ標準の required を効かせる */}
-            <input
+            <inpu
               type="text"
               id="category-hidden"
               tabIndex={-1}
@@ -153,7 +152,10 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
               defaultValue=""
               style={{ opacity: 0, height: 0, position: "absolute", pointerEvents: "none" }}
             />
+
+
           </div>
+
 
           <div className="space-y-2">
             <Label htmlFor="content" className="text-base font-medium">
