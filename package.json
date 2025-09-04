@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://al25133.github.io/HiraoyogiSNS",
-  "scripts": {
-    "build": "next build",
-    "deploy": "npm run export && touch out/.nojekyll",
-    "dev": "next dev",
-    "export": "next build && next export",
-    "lint": "next lint",
-    "start": "next start"
-  },
+"scripts": {
+  "build": "next build",
+  "dev": "next dev",
+  "start": "next start",
+  "lint": "next lint",
+  "deploy": "npm run build && touch out/.nojekyll"
+}
+
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
