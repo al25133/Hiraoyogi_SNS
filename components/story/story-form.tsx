@@ -75,48 +75,84 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="category" className="text-base font-medium">
-                カテゴリー
-              </Label>
-              <Select value={category} onValueChange={setCategory} required>
-                <SelectTrigger className="h-12 text-base">
-                  <SelectValue placeholder="カテゴリーを選択" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="childhood">子供時代</SelectItem>
-                  <SelectItem value="work">仕事・職業</SelectItem>
-                  <SelectItem value="family">家族・結婚</SelectItem>
-                  <SelectItem value="culture">文化・伝統</SelectItem>
-                  <SelectItem value="food">料理・食べ物</SelectItem>
-                  <SelectItem value="festival">祭り・行事</SelectItem>
-                  <SelectItem value="technology">技術・道具</SelectItem>
-                  <SelectItem value="other">その他</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="era" className="text-base font-medium">
-                時代
-              </Label>
-              <Select value={era} onValueChange={setEra} required>
-                <SelectTrigger className="h-12 text-base">
-                  <SelectValue placeholder="時代を選択" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1930s">1930年代</SelectItem>
-                  <SelectItem value="1940s">1940年代</SelectItem>
-                  <SelectItem value="1950s">1950年代</SelectItem>
-                  <SelectItem value="1960s">1960年代</SelectItem>
-                  <SelectItem value="1970s">1970年代</SelectItem>
-                  <SelectItem value="1980s">1980年代</SelectItem>
-                  <SelectItem value="1990s">1990年代</SelectItem>
-                  <SelectItem value="2000s">2000年代</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+                    {/* カテゴリー */}
+          <div className="space-y-2">
+            <Label htmlFor="category" className="text-base font-medium">
+              カテゴリー
+            </Label>
+            <Select
+              value={category}
+              onValueChange={(val) => {
+                setCategory(val)
+                const hidden = document.getElementById("category-hidden") as HTMLInputElement | null
+                if (hidden) hidden.value = val
+              }}
+            >
+              <SelectTrigger className="h-12 text-base">
+                <SelectValue placeholder="カテゴリーを選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="childhood">子供時代</SelectItem>
+                <SelectItem value="work">仕事・職業</SelectItem>
+                <SelectItem value="family">家族・結婚</SelectItem>
+                <SelectItem value="culture">文化・伝統</SelectItem>
+                <SelectItem value="food">料理・食べ物</SelectItem>
+                <SelectItem value="festival">祭り・行事</SelectItem>
+                <SelectItem value="technology">技術・道具</SelectItem>
+                <SelectItem value="other">その他</SelectItem>
+              </SelectContent>
+            </Select>
+          
+            {/* hidden input → ブラウザ標準の required を効かせる */}
+            <input
+              type="text"
+              id="category-hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              required
+              defaultValue=""
+              style={{ opacity: 0, height: 0, position: "absolute", pointerEvents: "none" }}
+            />
+          </div>
+          
+          {/* 時代 */}
+          <div className="space-y-2">
+            <Label htmlFor="era" className="text-base font-medium">
+              時代
+            </Label>
+            <Select
+              value={era}
+              onValueChange={(val) => {
+                setEra(val)
+                const hidden = document.getElementById("era-hidden") as HTMLInputElement | null
+                if (hidden) hidden.value = val
+              }}
+            >
+              <SelectTrigger className="h-12 text-base">
+                <SelectValue placeholder="時代を選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1930s">1930年代</SelectItem>
+                <SelectItem value="1940s">1940年代</SelectItem>
+                <SelectItem value="1950s">1950年代</SelectItem>
+                <SelectItem value="1960s">1960年代</SelectItem>
+                <SelectItem value="1970s">1970年代</SelectItem>
+                <SelectItem value="1980s">1980年代</SelectItem>
+                <SelectItem value="1990s">1990年代</SelectItem>
+                <SelectItem value="2000s">2000年代</SelectItem>
+              </SelectContent>
+            </Select>
+          
+            {/* hidden input */}
+            <input
+              type="text"
+              id="era-hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              required
+              defaultValue=""
+              style={{ opacity: 0, height: 0, position: "absolute", pointerEvents: "none" }}
+            />
           </div>
 
           <div className="space-y-2">
