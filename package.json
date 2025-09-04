@@ -2,7 +2,7 @@
   "name": "generational-sns",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://al25133.github.io",
+  "homepage": "http://al25133.github.io/HiraoyogiSNS",
   "scripts": {
     "build": "next build",
     "deploy": "npm run export && touch out/.nojekyll",
