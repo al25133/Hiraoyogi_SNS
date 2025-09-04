@@ -3,11 +3,13 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches:
-      - main  # main に push されたとき実行
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # ← GitHub Pages へ push するための権限
 
     steps:
       - name: Checkout source
