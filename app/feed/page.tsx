@@ -130,7 +130,7 @@ export default function FeedPage() {
       id: `c${Date.now()}`,
       content,
       author: {
-        name: "現在のユーザー", // 実際のアプリでは認証されたユーザー情報を使用
+        name: "あなた", // 実際のアプリでは認証されたユーザー情報を使用
         type: "grandchild" as const,
       },
       createdAt: new Date().toISOString(),
