@@ -1,3 +1,4 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -11,8 +12,8 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/SNS' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/SNS/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/Hiraoyogi_SNS' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Hiraoyogi_SNS/' : '',
 }
 
 export default nextConfig
