@@ -98,10 +98,12 @@ export default function ProfilePage() {
               </Link>
               <h1 className="text-2xl font-serif text-primary">プロフィール</h1>
             </div>
-            <Button variant="outline" className="gap-2 bg-transparent">
-              <Settings className="h-4 w-4" />
-              設定
-            </Button>
+            <Link href="/profile/settings">
+              <Button variant="outline" className="gap-2 bg-transparent">
+                <Settings className="h-4 w-4" />
+                設定
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
