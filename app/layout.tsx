@@ -1,14 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Playfair_Display } from "next/font/google"
+import { Noto_Sans_JP, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const playfair = Playfair_Display({
+const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-noto-sans-jp",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
 })
 
 export const metadata: Metadata = {
@@ -23,10 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${playfair.variable}`}>
-        <ClientLayout>{children}</ClientLayout>
-      </body>
+    <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   )
 }
