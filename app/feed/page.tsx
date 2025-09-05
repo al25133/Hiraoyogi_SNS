@@ -184,20 +184,23 @@ export default function FeedPage() {
       <header className="bg-card border-b sticky top-0 z-10">
         <div className="max-w-4xl mx-auto p-4">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-2xl font-serif text-primary">世代つなぎ</h1>
-            <Link href="/post">
-              <Button className="gap-2">
-                <PlusCircle className="h-4 w-4" />
-                昔話を投稿
+  <h1 className="text-2xl font-serif text-primary">世代つなぎ</h1>
+        <div className="flex items-center gap-2">
+          <Link href="/post">
+            <Button className="gap-2">
+              <PlusCircle className="h-4 w-4" />
+              昔話を投稿
+            </Button>
+          </Link>
+          
+          <Link href="/profile">
+              <Button variant="outline" className="rounded-full w-10 h-10 p-0">
+                <span className="sr-only">プロフィール</span>
+                <User className="h-5 w-5" />
               </Button>
-            </Link>
-            <Link href="/profile">
-                <Button variant="outline" className="rounded-full w-10 h-10 p-0">
-                  <span className="sr-only">プロフィール</span>
-                  <User className="h-5 w-5" />
-                </Button>
-            </Link>
-          </div>
+          </Link>
+        </div>
+      </div>
 
           {/* 検索・フィルター */}
           <div className="space-y-3">
