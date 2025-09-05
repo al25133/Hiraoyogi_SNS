@@ -122,7 +122,7 @@ export default function ProfilePage() {
               投稿した昔話 ({publishedStories.length})
             </TabsTrigger>
             <TabsTrigger value="drafts" className="text-base">
-              下書き ({draftStories.length})
+              通知 ({draftStories.length})
             </TabsTrigger>
           </TabsList>
 
@@ -145,12 +145,8 @@ export default function ProfilePage() {
           <TabsContent value="drafts">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-serif text-primary">下書き</h2>
-                <Link href="/post">
-                  <Button>新しい昔話を投稿</Button>
-                </Link>
+                <h2 className="text-xl font-serif text-primary">通知</h2>
               </div>
-              <UserStories stories={draftStories} onEdit={handleEditStory} onDelete={handleDeleteStory} />
             </div>
           </TabsContent>
         </Tabs>
