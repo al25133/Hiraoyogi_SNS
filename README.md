@@ -2,5 +2,5 @@
 
 ## 機能
 世代間をつなげる
-## ソース
-https://github.com/al25133/Hiraoyogi_SNS/
+## webページ
+https://al25133.github.io/Hiraoyogi_SNS/
