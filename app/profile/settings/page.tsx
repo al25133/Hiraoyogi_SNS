@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -24,7 +24,14 @@ export default function SettingsPage() {
   })
 
   const { theme, setTheme } = useTheme()
-  const [tempTheme, setTempTheme] = useState(theme || "light")
+  const [tempTheme, setTempTheme] = useState("light")
+
+  // ✅ useEffectで初期化（SSRとCSRの不一致を防ぐ）
+  useEffect(() => {
+    if (theme) {
+      setTempTheme(theme)
+    }
+  }, [theme])
 
   const handleSave = () => {
     setTheme(tempTheme)
@@ -66,7 +73,9 @@ export default function SettingsPage() {
               <Switch
                 id="new-comments"
                 checked={notifications.newComments}
-                onCheckedChange={(checked) => setNotifications({ ...notifications, newComments: checked })}
+                onCheckedChange={(checked) =>
+                  setNotifications({ ...notifications, newComments: checked })
+                }
               />
             </div>
             <div className="flex items-center justify-between">
@@ -76,7 +85,9 @@ export default function SettingsPage() {
               <Switch
                 id="new-likes"
                 checked={notifications.newLikes}
-                onCheckedChange={(checked) => setNotifications({ ...notifications, newLikes: checked })}
+                onCheckedChange={(checked) =>
+                  setNotifications({ ...notifications, newLikes: checked })
+                }
               />
             </div>
             <div className="flex items-center justify-between">
@@ -86,7 +97,9 @@ export default function SettingsPage() {
               <Switch
                 id="weekly-digest"
                 checked={notifications.weeklyDigest}
-                onCheckedChange={(checked) => setNotifications({ ...notifications, weeklyDigest: checked })}
+                onCheckedChange={(checked) =>
+                  setNotifications({ ...notifications, weeklyDigest: checked })
+                }
               />
             </div>
           </CardContent>
@@ -107,12 +120,16 @@ export default function SettingsPage() {
                 <Label htmlFor="profile-public" className="text-base">
                   プロフィールを公開
                 </Label>
-                <p className="text-sm text-muted-foreground">他のユーザーがあなたのプロフィールを見ることができます</p>
+                <p className="text-sm text-muted-foreground">
+                  他のユーザーがあなたのプロフィールを見ることができます
+                </p>
               </div>
               <Switch
                 id="profile-public"
                 checked={privacy.profilePublic}
-                onCheckedChange={(checked) => setPrivacy({ ...privacy, profilePublic: checked })}
+                onCheckedChange={(checked) =>
+                  setPrivacy({ ...privacy, profilePublic: checked })
+                }
               />
             </div>
             <div className="flex items-center justify-between">
@@ -120,12 +137,16 @@ export default function SettingsPage() {
                 <Label htmlFor="show-email" className="text-base">
                   メールアドレスを表示
                 </Label>
-                <p className="text-sm text-muted-foreground">プロフィールにメールアドレスを表示します</p>
+                <p className="text-sm text-muted-foreground">
+                  プロフィールにメールアドレスを表示します
+                </p>
               </div>
               <Switch
                 id="show-email"
                 checked={privacy.showEmail}
-                onCheckedChange={(checked) => setPrivacy({ ...privacy, showEmail: checked })}
+                onCheckedChange={(checked) =>
+                  setPrivacy({ ...privacy, showEmail: checked })
+                }
               />
             </div>
           </CardContent>
@@ -147,25 +168,25 @@ export default function SettingsPage() {
                 標準
               </Button>
             </div>
-             <div className="flex items-center justify-between">
-            <Label className="text-base">テーマ</Label>
-            <div className="flex gap-2">
-              <Button
-                variant={tempTheme === "light" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setTempTheme("light")}
-              >
-                ライト
-              </Button>
-              <Button
-                variant={tempTheme === "dark" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setTempTheme("dark")}
-              >
-                ダーク
-              </Button>
+            <div className="flex items-center justify-between">
+              <Label className="text-base">テーマ</Label>
+              <div className="flex gap-2">
+                <Button
+                  variant={tempTheme === "light" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setTempTheme("light")}
+                >
+                  ライト
+                </Button>
+                <Button
+                  variant={tempTheme === "dark" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setTempTheme("dark")}
+                >
+                  ダーク
+                </Button>
+              </div>
             </div>
-          </div>
           </CardContent>
         </Card>
 
@@ -195,7 +216,9 @@ export default function SettingsPage() {
 
         {/* 保存ボタン */}
         <div className="flex justify-end">
-          <Button className="text-base">設定を保存</Button>
+          <Button className="text-base" onClick={handleSave}>
+            設定を保存
+          </Button>
         </div>
       </main>
     </div>
