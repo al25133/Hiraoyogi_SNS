@@ -128,22 +128,6 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
             <p className="text-sm text-muted-foreground">{content.length}/2000文字</p>
           </div>
 
-          <div className="space-y-2">
-            <Label className="text-base font-medium">タグ（キーワード）</Label>
-            <div className="flex gap-2">
-              <Input
-                value={newTag}
-                onChange={(e) => setNewTag(e.target.value)}
-                placeholder="例：遊び、学校、戦争"
-                className="text-base h-10"
-                onKeyPress={(e) => e.key === "Enter" && (e.preventDefault(), handleAddTag())}
-              />
-              <Button type="button" onClick={handleAddTag} variant="outline" className="h-10 bg-transparent">
-                追加
-              </Button>
-            </div>
-          </div>
-
           <Button type="submit" className="w-full h-12 text-base">
             昔話を投稿する
           </Button>
