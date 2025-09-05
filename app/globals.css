@@ -81,6 +81,7 @@
   --chart-4: oklch(0.65 0.2 25);
   --chart-5: oklch(0.7 0.15 90);
 
+  --header: oklch(0.67 0.06604 59.971);
   --sidebar: oklch(0.1 0.01 150);
   --sidebar-foreground: oklch(0.95 0.005 160);
   --sidebar-primary: oklch(0.7032 0.0646 176.29);
@@ -123,6 +124,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-header: var(--sidebar);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
