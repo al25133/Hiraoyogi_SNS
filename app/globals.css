@@ -38,6 +38,7 @@
 
   --radius: 0.5rem;
 
+  --header: oklch(82.915% 0.10369 148.114);
   --sidebar: oklch(0.98 0.02 160);
   --sidebar-foreground: oklch(0.25 0.02 150);
   --sidebar-primary: oklch(0.7032 0.0646 176.29);
@@ -124,7 +125,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-header: var(--sidebar);
+  --color-header: var(--header);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);

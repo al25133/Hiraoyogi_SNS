@@ -43,7 +43,7 @@ interface StoryDetailModalProps {
   isOpen: boolean
   onClose: () => void
   onLike?: (storyId: string) => void
-  onRevial?: (storyId: string) => void
+  onRevival?: (storyId: string) => void
   onShare?: (storyId: string) => void
   comments?: Comment[]
   onAddComment?: (storyId: string, content: string) => void
@@ -55,7 +55,7 @@ export function StoryDetailModal({
   isOpen,
   onClose,
   onLike,
-  onRevial,
+  onRevival,
   onShare,
   comments = [],
   onAddComment,
@@ -141,7 +141,7 @@ export function StoryDetailModal({
               <Button
                 variant="ghost"
                 size="lg"
-                onClick={() => onRevial?.(story.id)}
+                onClick={() => onRevival?.(story.id)}
                 className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
               >
                 <Pickaxe className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />

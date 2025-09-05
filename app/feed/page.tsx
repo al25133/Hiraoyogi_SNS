@@ -297,7 +297,7 @@ export default function FeedPage() {
         isOpen={!!selectedStory}
         onClose={() => setSelectedStory(null)}
         onLike={handleLike}
-        onRevial={handleRevival}
+        onRevival={handleRevival}
         onShare={handleShare}
         comments={selectedStory ? comments[selectedStory.id] || [] : []}
         onAddComment={handleAddComment}
