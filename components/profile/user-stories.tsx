@@ -14,6 +14,7 @@ interface Story {
   tags: string[]
   createdAt: string
   likes: number
+  Revivals: number
   comments: number
   isPublished: boolean
 }
@@ -110,6 +111,11 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <Heart className="h-4 w-4" />
                 {story.likes}
+              </div>
+              <div className="flex items-center gap-4 pt-2 border-t">
+              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <Heart className="h-4 w-4" />
+                {story.Revivals}
               </div>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <MessageCircle className="h-4 w-4" />

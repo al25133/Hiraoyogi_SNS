@@ -156,7 +156,7 @@ export function StoryDetailModal({
                 className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
               >
                 <Heart className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
-                {story.likes}
+                {story.Revivals}
               </Button>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MessageCircle className="h-4 w-4" />

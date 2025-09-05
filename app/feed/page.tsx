@@ -149,7 +149,7 @@ export default function FeedPage() {
       content,
       author: {
         name: "あなた", // 実際のアプリでは認証されたユーザー情報を使用
-        type: "grandchild" as const,
+        type: "grandparent" as const,
       },
       createdAt: new Date().toISOString(),
       likes: 0,
@@ -284,6 +284,7 @@ export default function FeedPage() {
                 key={story.id}
                 story={story}
                 onLike={handleLike}
+                onRevival={handleRevival}
                 onComment={handleComment}
                 onShare={handleShare}
                 onClick={() => setSelectedStory(story)}
@@ -299,6 +300,7 @@ export default function FeedPage() {
         isOpen={!!selectedStory}
         onClose={() => setSelectedStory(null)}
         onLike={handleLike}
+        onRevial={handleRevival}
         onShare={handleShare}
         comments={selectedStory ? comments[selectedStory.id] || [] : []}
         onAddComment={handleAddComment}

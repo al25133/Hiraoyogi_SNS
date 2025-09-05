@@ -22,17 +22,20 @@ interface Story {
   likes: number
   comments: number
   isLiked?: boolean
+  Revivals:number
+  isRevived?: boolean
 }
 
 interface StoryCardProps {
   story: Story
   onLike?: (storyId: string) => void
+  onRevival?: (storyId: string) => void
   onComment?: (storyId: string) => void
   onShare?: (storyId: string) => void
   onClick?: (story: Story) => void
 }
 
-export function StoryCard({ story, onLike, onComment, onShare, onClick }: StoryCardProps) {
+export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick }: StoryCardProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     return date.toLocaleDateString("ja-JP", {
@@ -125,6 +128,18 @@ export function StoryCard({ story, onLike, onComment, onShare, onClick }: StoryC
             >
               <Heart className={`h-4 w-4 ${story.isLiked ? "fill-current" : ""}`} />
               {story.likes}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                onRevival?.(story.id)
+              }}
+              className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
+            >
+              <Heart className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
+              {story.Revivals}
             </Button>
             <Button
               variant="ghost"
