@@ -5,79 +5,96 @@
 
 :root {
   --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0.35 0.02 258); /* Dark blue-gray #475569 */
-  --card: oklch(0.98 0.02 340); /* Light pink #fdf2f8 */
-  --card-foreground: oklch(0.25 0.02 258); /* Darker text on cards */
-  --popover: oklch(1 0 0); /* White */
-  --popover-foreground: oklch(0.35 0.02 258); /* Dark blue-gray */
-  --primary: oklch(0.45 0.22 15); /* Rose-600 #be123c */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: ; /* Bright pink #ec4899 */
-  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
-  --muted: oklch(0.98 0.005 258); /* Very light gray #f8fafc */
-  --muted-foreground: oklch(0.25 0.02 258); /* Muted text */
-  --accent: ; /* Bright pink accent */
-  --accent-foreground: oklch(1 0 0); /* White text on accent */
-  --destructive: oklch(0.55 0.22 25); /* Red for errors */
-  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
-  --border: oklch(0.9 0.005 258); /* Light border #e5e7eb */
-  --input: oklch(0.98 0.005 258); /* Light input background */
-  --ring: oklch(0.45 0.22 15); /* Rose focus ring */
-  --chart-1: oklch(0.75 0.15 85); /* Warm yellow */
-  --chart-2: oklch(0.65 0.12 165); /* Teal */
-  --chart-3: oklch(0.55 0.08 258); /* Blue-gray */
-  --chart-4: oklch(0.6 0.22 25); /* Red */
-  --chart-5: oklch(0.65 0.18 45); /* Orange */
+  --foreground: oklch(0.35 0.02 150); /* 落ち着いたダークグリーン系 */
+  --card: oklch(0.98 0.02 160); /* ごく薄いグリーン */
+  --card-foreground: oklch(0.25 0.02 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0.02 150);
+
+  --primary: oklch(0.7032 0.0646 176.29); /* 指定のグリーン #73AD9E */
+  --primary-foreground: oklch(1 0 0); /* 白文字 */
+
+  --secondary: oklch(0.65 0.1 170); /* 補色寄りのライトグリーン */
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.98 0.005 150); /* 薄い灰緑 */
+  --muted-foreground: oklch(0.25 0.02 150);
+
+  --accent: oklch(0.7 0.1 176); /* 少し鮮やかな緑 */
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.55 0.22 25); /* 赤 (エラー用はそのまま) */
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.9 0.005 150);
+  --input: oklch(0.98 0.005 150);
+  --ring: oklch(0.7032 0.0646 176.29); /* 指定のグリーン */
+
+  --chart-1: oklch(0.75 0.12 170); /* ライトグリーン */
+  --chart-2: oklch(0.65 0.1 200);  /* 青緑 */
+  --chart-3: oklch(0.55 0.08 140); /* グレーグリーン */
+  --chart-4: oklch(0.6 0.18 25);   /* 赤 */
+  --chart-5: oklch(0.65 0.15 90);  /* 黄緑 */
+
   --radius: 0.5rem;
-  --sidebar: oklch(0.98 0.02 340); /* Light pink sidebar */
-  --sidebar-foreground: oklch(0.25 0.02 258); /* Dark text in sidebar */
-  --sidebar-primary: oklch(0.45 0.22 15); /* Rose primary in sidebar */
-  --sidebar-primary-foreground: oklch(1 0 0); /* White text */
-  --sidebar-accent: ; /* Pink accent in sidebar */
-  --sidebar-accent-foreground: oklch(1 0 0); /* White text */
-  --sidebar-border: oklch(0.9 0.005 258); /* Light border */
-  --sidebar-ring: oklch(0.45 0.22 15); /* Rose focus ring */
+
+  --sidebar: oklch(0.98 0.02 160);
+  --sidebar-foreground: oklch(0.25 0.02 150);
+  --sidebar-primary: oklch(0.7032 0.0646 176.29);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.1 170);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.9 0.005 150);
+  --sidebar-ring: oklch(0.7032 0.0646 176.29);
 }
 
 .dark {
-  --background: oklch(0.08 0.005 258); /* Very dark blue-gray */
-  --foreground: oklch(0.95 0.005 340); /* Light pink-white */
-  --card: oklch(0.12 0.01 258); /* Dark card background */
-  --card-foreground: oklch(0.95 0.005 340); /* Light text on cards */
-  --popover: oklch(0.08 0.005 258); /* Dark popover */
-  --popover-foreground: oklch(0.95 0.005 340); /* Light text */
-  --primary: oklch(0.7032 0.0646 176.29); /* Lighter rose for dark mode */
-  --primary-foreground: oklch(0.08 0.005 258); /* Dark text on primary */
-  --secondary: oklch(0.4 0.15 340); /* Darker pink for secondary */
-  --secondary-foreground: oklch(0.95 0.005 340); /* Light text */
-  --muted: oklch(0.15 0.01 258); /* Dark muted background */
-  --muted-foreground: oklch(0.65 0.005 258); /* Muted text */
-  --accent: oklch(0.7 0.25 340); /* Bright accent for dark mode */
-  --accent-foreground: oklch(0.08 0.005 258); /* Dark text on accent */
-  --destructive: oklch(0.5 0.2 25); /* Darker red for dark mode */
-  --destructive-foreground: oklch(0.95 0.005 340); /* Light text */
-  --border: oklch(0.2 0.01 258); /* Dark border */
-  --input: oklch(0.15 0.01 258); /* Dark input background */
-  --ring: oklch(0.7032 0.0646 176.29); /* Lighter rose focus ring */
-  --chart-1: oklch(0.6 0.2 85); /* Adjusted chart colors for dark mode */
-  --chart-2: oklch(0.55 0.15 165);
-  --chart-3: oklch(0.65 0.1 258);
+  --background: oklch(0.08 0.005 150);
+  --foreground: oklch(0.95 0.005 160);
+  --card: oklch(0.12 0.01 150);
+  --card-foreground: oklch(0.95 0.005 160);
+  --popover: oklch(0.08 0.005 150);
+  --popover-foreground: oklch(0.95 0.005 160);
+
+  --primary: oklch(0.7032 0.0646 176.29); /* 同じグリーン */
+  --primary-foreground: oklch(0.08 0.005 150);
+
+  --secondary: oklch(0.4 0.1 170);
+  --secondary-foreground: oklch(0.95 0.005 160);
+
+  --muted: oklch(0.15 0.01 150);
+  --muted-foreground: oklch(0.65 0.005 150);
+
+  --accent: oklch(0.7 0.1 176);
+  --accent-foreground: oklch(0.08 0.005 150);
+
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.95 0.005 160);
+
+  --border: oklch(0.2 0.01 150);
+  --input: oklch(0.15 0.01 150);
+  --ring: oklch(0.7032 0.0646 176.29);
+
+  --chart-1: oklch(0.6 0.15 170);
+  --chart-2: oklch(0.55 0.1 200);
+  --chart-3: oklch(0.65 0.08 140);
   --chart-4: oklch(0.65 0.2 25);
-  --chart-5: oklch(0.7 0.18 45);
-  --sidebar: oklch(0.1 0.01 258); /* Dark sidebar */
-  --sidebar-foreground: oklch(0.95 0.005 340); /* Light sidebar text */
-  --sidebar-primary: oklch(0.7032 0.0646 176.29); /* Light rose in sidebar */
-  --sidebar-primary-foreground: oklch(0.08 0.005 258); /* Dark text */
-  --sidebar-accent: oklch(0.4 0.15 340); /* Dark pink accent */
-  --sidebar-accent-foreground: oklch(0.95 0.005 340); /* Light text */
-  --sidebar-border: oklch(0.2 0.01 258); /* Dark border */
-  --sidebar-ring: oklch(0.7032 0.0646 176.29); /* Light rose focus ring */
+  --chart-5: oklch(0.7 0.15 90);
+
+  --sidebar: oklch(0.1 0.01 150);
+  --sidebar-foreground: oklch(0.95 0.005 160);
+  --sidebar-primary: oklch(0.7032 0.0646 176.29);
+  --sidebar-primary-foreground: oklch(0.08 0.005 150);
+  --sidebar-accent: oklch(0.4 0.1 170);
+  --sidebar-accent-foreground: oklch(0.95 0.005 160);
+  --sidebar-border: oklch(0.2 0.01 150);
+  --sidebar-ring: oklch(0.7032 0.0646 176.29);
 }
 
 @theme inline {
   --font-sans: var(--font-noto-sans-jp);
   --font-mono: var(--font-jetbrains-mono);
-  --font-serif: var(--font-playfair); /* Added Playfair Display for headings */
+  --font-serif: var(--font-playfair);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
