@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
 import { ArrowLeft, Bell, Shield, Palette, HelpCircle } from "lucide-react"
 import Link from "next/link"
 
@@ -13,29 +13,15 @@ export default function SettingsPage() {
   const [notifications, setNotifications] = useState({
     newComments: true,
     newLikes: true,
-    newFollowers: false,
     weeklyDigest: true,
   })
 
   const [privacy, setPrivacy] = useState({
     profilePublic: true,
     showEmail: false,
-    allowMessages: true,
   })
 
   const { theme, setTheme } = useTheme()
-  const [tempTheme, setTempTheme] = useState("light")
-
-  // ✅ useEffectで初期化（SSRとCSRの不一致を防ぐ）
-  useEffect(() => {
-    if (theme) {
-      setTempTheme(theme)
-    }
-  }, [theme])
-
-  const handleSave = () => {
-    setTheme(tempTheme)
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -163,25 +149,19 @@ export default function SettingsPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label className="text-base">文字サイズ</Label>
-              <Button variant="outline" size="sm">
-                標準
-              </Button>
-            </div>
-            <div className="flex items-center justify-between">
               <Label className="text-base">テーマ</Label>
               <div className="flex gap-2">
                 <Button
-                  variant={tempTheme === "light" ? "default" : "outline"}
+                  variant={theme === "light" ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setTempTheme("light")}
+                  onClick={() => setTheme("light")}
                 >
                   ライト
                 </Button>
                 <Button
-                  variant={tempTheme === "dark" ? "default" : "outline"}
+                  variant={theme === "dark" ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setTempTheme("dark")}
+                  onClick={() => setTheme("dark")}
                 >
                   ダーク
                 </Button>
@@ -213,13 +193,6 @@ export default function SettingsPage() {
             </Button>
           </CardContent>
         </Card>
-
-        {/* 保存ボタン */}
-        <div className="flex justify-end">
-          <Button className="text-base" onClick={handleSave}>
-            設定を保存
-          </Button>
-        </div>
       </main>
     </div>
   )
