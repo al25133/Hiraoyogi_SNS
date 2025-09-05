@@ -12,11 +12,11 @@
   --popover-foreground: oklch(0.35 0.02 258); /* Dark blue-gray */
   --primary: oklch(0.45 0.22 15); /* Rose-600 #be123c */
   --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.7032 0.0646 176.29); /* Bright pink #ec4899 */
+  --secondary: ; /* Bright pink #ec4899 */
   --secondary-foreground: oklch(1 0 0); /* White text on secondary */
   --muted: oklch(0.98 0.005 258); /* Very light gray #f8fafc */
   --muted-foreground: oklch(0.25 0.02 258); /* Muted text */
-  --accent: oklch(0.7032 0.0646 176.29); /* Bright pink accent */
+  --accent: ; /* Bright pink accent */
   --accent-foreground: oklch(1 0 0); /* White text on accent */
   --destructive: oklch(0.55 0.22 25); /* Red for errors */
   --destructive-foreground: oklch(1 0 0); /* White text on destructive */
@@ -33,7 +33,7 @@
   --sidebar-foreground: oklch(0.25 0.02 258); /* Dark text in sidebar */
   --sidebar-primary: oklch(0.45 0.22 15); /* Rose primary in sidebar */
   --sidebar-primary-foreground: oklch(1 0 0); /* White text */
-  --sidebar-accent: oklch(0.7032 0.0646 176.29); /* Pink accent in sidebar */
+  --sidebar-accent: ; /* Pink accent in sidebar */
   --sidebar-accent-foreground: oklch(1 0 0); /* White text */
   --sidebar-border: oklch(0.9 0.005 258); /* Light border */
   --sidebar-ring: oklch(0.45 0.22 15); /* Rose focus ring */
@@ -46,7 +46,7 @@
   --card-foreground: oklch(0.95 0.005 340); /* Light text on cards */
   --popover: oklch(0.08 0.005 258); /* Dark popover */
   --popover-foreground: oklch(0.95 0.005 340); /* Light text */
-  --primary: oklch(0.7 0.22 15); /* Lighter rose for dark mode */
+  --primary: oklch(0.7032 0.0646 176.29); /* Lighter rose for dark mode */
   --primary-foreground: oklch(0.08 0.005 258); /* Dark text on primary */
   --secondary: oklch(0.4 0.15 340); /* Darker pink for secondary */
   --secondary-foreground: oklch(0.95 0.005 340); /* Light text */
@@ -58,7 +58,7 @@
   --destructive-foreground: oklch(0.95 0.005 340); /* Light text */
   --border: oklch(0.2 0.01 258); /* Dark border */
   --input: oklch(0.15 0.01 258); /* Dark input background */
-  --ring: oklch(0.7 0.22 15); /* Lighter rose focus ring */
+  --ring: oklch(0.7032 0.0646 176.29); /* Lighter rose focus ring */
   --chart-1: oklch(0.6 0.2 85); /* Adjusted chart colors for dark mode */
   --chart-2: oklch(0.55 0.15 165);
   --chart-3: oklch(0.65 0.1 258);
@@ -66,12 +66,12 @@
   --chart-5: oklch(0.7 0.18 45);
   --sidebar: oklch(0.1 0.01 258); /* Dark sidebar */
   --sidebar-foreground: oklch(0.95 0.005 340); /* Light sidebar text */
-  --sidebar-primary: oklch(0.7 0.22 15); /* Light rose in sidebar */
+  --sidebar-primary: oklch(0.7032 0.0646 176.29); /* Light rose in sidebar */
   --sidebar-primary-foreground: oklch(0.08 0.005 258); /* Dark text */
   --sidebar-accent: oklch(0.4 0.15 340); /* Dark pink accent */
   --sidebar-accent-foreground: oklch(0.95 0.005 340); /* Light text */
   --sidebar-border: oklch(0.2 0.01 258); /* Dark border */
-  --sidebar-ring: oklch(0.7 0.22 15); /* Light rose focus ring */
+  --sidebar-ring: oklch(0.7032 0.0646 176.29); /* Light rose focus ring */
 }
 
 @theme inline {
