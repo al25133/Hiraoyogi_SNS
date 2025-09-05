@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
-        </ThemeProvider>{children}</body>
+        </ThemeProvider></body>
     </html>
   )
 }
