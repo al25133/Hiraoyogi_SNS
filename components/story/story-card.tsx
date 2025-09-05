@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Heart, Redo-2, MessageCircle, Share2, Clock } from "lucide-react"
+import { Heart, Redo2, MessageCircle, Share2, Clock } from "lucide-react"
 
 interface Story {
   id: string
@@ -138,7 +138,7 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
               }}
               className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
             >
-              <Redo-2 className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
+              <Redo2 className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
               {story.Revivals}
             </Button>
             <Button
