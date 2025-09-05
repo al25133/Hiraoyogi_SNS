@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Heart, MessageCircle, Share2, Clock } from "lucide-react"
+import { Heart, Redo-2, MessageCircle, Share2, Clock } from "lucide-react"
 import { CommentSection } from "./comment-section"
 
 interface Story {
@@ -155,7 +155,7 @@ export function StoryDetailModal({
                 onClick={() => onRevial?.(story.id)}
                 className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
               >
-                <Heart className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
+                <Redo-2 className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
                 {story.Revivals}
               </Button>
               <div className="flex items-center gap-2 text-muted-foreground">

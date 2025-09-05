@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Heart, MessageCircle, Calendar, Edit } from "lucide-react"
+import { Heart, Redo-2, MessageCircle, Calendar, Edit } from "lucide-react"
 
 interface Story {
   id: string
@@ -118,7 +118,7 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
                 {story.likes}
               </div>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <Heart className="h-4 w-4" />
+                <Redo-2 className="h-4 w-4" />
                 {story.Revivals}
               </div>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
