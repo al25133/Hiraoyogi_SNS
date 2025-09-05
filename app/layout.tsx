@@ -1,4 +1,5 @@
 import type React from "react"
+import { ThemeProvider } from "next-themes"
 import type { Metadata } from "next"
 import { Noto_Sans_JP, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
@@ -16,9 +17,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "世代つなぎ - 昔話を共有するSNS",
+  title: "StarRe: -未来つなぎ-",
   description: "祖父母と孫をつなぐ、昔話と文化を共有するソーシャルネットワーク",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -28,7 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
+        </ThemeProvider>{children}</body>
     </html>
   )
 }

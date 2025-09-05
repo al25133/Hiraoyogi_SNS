@@ -16,7 +16,7 @@ export function LoginForm() {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-serif text-primary">世代つなぎ</CardTitle>
+          <CardTitle className="text-2xl font-serif text-primary">StarRe: -未来つなぎ-</CardTitle>
           <CardDescription className="text-base">昔話を通じて世代をつなぐSNS</CardDescription>
         </CardHeader>
         <CardContent>

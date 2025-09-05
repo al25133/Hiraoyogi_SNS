@@ -6,7 +6,7 @@
 :root {
   --background: oklch(1 0 0); /* Pure white */
   --foreground: oklch(0.35 0.02 150); /* 落ち着いたダークグリーン系 */
-  --card: oklch(0.98 0.02 160); /* ごく薄いグリーン */
+  --card: oklch(0.91 0.13599 156.314); /* ごく薄いグリーン */
   --card-foreground: oklch(0.25 0.02 150);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.35 0.02 150);
