@@ -28,6 +28,8 @@ const sampleStories = [
     likes: 24,
     comments: 2,
     isLiked: false,
+    Revivals: 24,
+    isRevived: false,
   },
   {
     id: "2",
@@ -45,6 +47,8 @@ const sampleStories = [
     likes: 18,
     comments: 1,
     isLiked: true,
+    Revivals: 24,
+    isRevived: false,
   },
 ]
 
@@ -113,6 +117,20 @@ export default function FeedPage() {
     )
   }
 
+    const handleRevival = (storyId: string) => {
+    setStories(
+      stories.map((story) =>
+        story.id === storyId
+          ? {
+              ...story,
+              isRevived: !story.isRevived,
+              Revivals: story.isRevived ? story.Revivals - 1 : story.Revivals + 1,
+            }
+          : story,
+      ),
+    )
+  }
+
   const handleComment = (storyId: string) => {
     const story = stories.find((s) => s.id === storyId)
     if (story) {
@@ -122,7 +140,7 @@ export default function FeedPage() {
 
   const handleShare = (storyId: string) => {
     console.log("共有機能:", storyId)
-    // 共有機能の実装
+    // 共有機能の実装（ハリボテ）
   }
 
   const handleAddComment = (storyId: string, content: string) => {

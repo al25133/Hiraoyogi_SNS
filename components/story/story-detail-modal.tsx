@@ -20,8 +20,10 @@ interface Story {
   }
   createdAt: string
   likes: number
+  Revivals: number
   comments: number
   isLiked?: boolean
+  isRevived?: boolean
 }
 
 interface Comment {
@@ -42,6 +44,7 @@ interface StoryDetailModalProps {
   isOpen: boolean
   onClose: () => void
   onLike?: (storyId: string) => void
+  onRevial?: (storyId: string) => void
   onShare?: (storyId: string) => void
   comments?: Comment[]
   onAddComment?: (storyId: string, content: string) => void
@@ -53,6 +56,7 @@ export function StoryDetailModal({
   isOpen,
   onClose,
   onLike,
+  onRevial,
   onShare,
   comments = [],
   onAddComment,
@@ -143,6 +147,15 @@ export function StoryDetailModal({
                 className={`gap-2 ${story.isLiked ? "text-red-500" : "text-muted-foreground"}`}
               >
                 <Heart className={`h-4 w-4 ${story.isLiked ? "fill-current" : ""}`} />
+                {story.likes}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onRevial?.(story.id)}
+                className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
+              >
+                <Heart className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
                 {story.likes}
               </Button>
               <div className="flex items-center gap-2 text-muted-foreground">
