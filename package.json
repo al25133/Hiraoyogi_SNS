@@ -2,7 +2,7 @@
   "name": "generational-sns",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://al25133.github.io/Hiraoyogi_SNS",
+  "homepage": "https://al25133.github.io/StarRe",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

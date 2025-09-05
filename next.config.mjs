@@ -12,8 +12,8 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/Hiraoyogi_SNS' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Hiraoyogi_SNS/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/StarRe' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/StarRe/' : '',
 }
 
 export default nextConfig
