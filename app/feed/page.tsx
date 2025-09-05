@@ -7,7 +7,7 @@ import { BottomNav } from "@/components/navigation/bottom-nav"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { PlusCircle, Search } from "lucide-react"
+import { PlusCircle, Search, User } from "lucide-react"
 import Link from "next/link"
 
 // サンプルデータ
@@ -190,6 +190,12 @@ export default function FeedPage() {
                 <PlusCircle className="h-4 w-4" />
                 昔話を投稿
               </Button>
+            </Link>
+            <Link href="/profile">
+                <Button variant="outline" className="rounded-full w-10 h-10 p-0">
+                  <span className="sr-only">プロフィール</span>
+                  <User className="h-5 w-5" />
+                </Button>
             </Link>
           </div>
 
