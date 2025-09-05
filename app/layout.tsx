@@ -30,8 +30,7 @@ export default function RootLayout({
     <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
-        </ThemeProvider></body>
+        </ThemeProvider>{children}</body>
     </html>
   )
 }
