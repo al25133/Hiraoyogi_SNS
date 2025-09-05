@@ -131,7 +131,7 @@ export function StoryDetailModal({
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
-                size="sm"
+                size="lg"
                 onClick={() => onLike?.(story.id)}
                 className={`gap-2 ${story.isLiked ? "text-red-500" : "text-muted-foreground"}`}
               >
@@ -140,7 +140,7 @@ export function StoryDetailModal({
               </Button>
               <Button
                 variant="ghost"
-                size="sm"
+                size="lg"
                 onClick={() => onRevial?.(story.id)}
                 className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
               >
@@ -154,7 +154,7 @@ export function StoryDetailModal({
             </div>
             <Button
               variant="ghost"
-              size="sm"
+              size="lg"
               onClick={() => onShare?.(story.id)}
               className="gap-2 text-muted-foreground"
             >
