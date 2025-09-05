@@ -86,7 +86,12 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
                   </Badge>
                 </div>
               </div>
-              <Button variant="ghost" size="sm" onClick={() => onEdit?.(story.id)} className="gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onEdit?.(story.id)}
+                className="gap-2"
+              >
                 <Edit className="h-4 w-4" />
                 編集
               </Button>
@@ -112,7 +117,6 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
                 <Heart className="h-4 w-4" />
                 {story.likes}
               </div>
-              <div className="flex items-center gap-4 pt-2 border-t">
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <Heart className="h-4 w-4" />
                 {story.Revivals}
