@@ -110,7 +110,7 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
-              size="sm"
+              size="lg"
               onClick={(e) => {
                 e.stopPropagation()
                 onLike?.(story.id)
@@ -122,7 +122,7 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
             </Button>
             <Button
               variant="ghost"
-              size="sm"
+              size="lg"
               onClick={(e) => {
                 e.stopPropagation()
                 onRevival?.(story.id)
@@ -134,7 +134,7 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
             </Button>
             <Button
               variant="ghost"
-              size="sm"
+              size="lg"
               onClick={(e) => {
                 e.stopPropagation()
                 onComment?.(story.id)
@@ -147,7 +147,7 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
           </div>
           <Button
             variant="ghost"
-            size="sm"
+            size="lg"
             onClick={(e) => {
               e.stopPropagation()
               onShare?.(story.id)

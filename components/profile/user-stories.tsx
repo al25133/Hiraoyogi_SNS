@@ -87,7 +87,7 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
               </div>
               <Button
                 variant="ghost"
-                size="sm"
+                size="lg"
                 onClick={() => onEdit?.(story.id)}
                 className="gap-2"
               >

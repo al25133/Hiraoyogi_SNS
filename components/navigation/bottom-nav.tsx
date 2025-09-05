@@ -38,7 +38,7 @@ export function BottomNav() {
             <Link key={item.href} href={item.href}>
               <Button
                 variant={item.active ? "default" : "ghost"}
-                size="sm"
+                size="lg"
                 className={`flex flex-col gap-1 h-auto py-2 px-3 ${
                   item.active ? "text-primary-foreground" : "text-muted-foreground"
                 }`}

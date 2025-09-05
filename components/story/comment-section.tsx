@@ -114,7 +114,7 @@ export function CommentSection({ storyId, comments, onAddComment, onLikeComment 
               <div className="flex items-center justify-between pl-13">
                 <Button
                   variant="ghost"
-                  size="sm"
+                  size="lg"
                   onClick={() => onLikeComment?.(comment.id)}
                   className={`gap-1 h-8 text-xs ${comment.isLiked ? "text-red-500" : "text-muted-foreground"}`}
                 >
