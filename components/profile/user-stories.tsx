@@ -11,7 +11,6 @@ interface Story {
   content: string
   category: string
   era: string
-  tags: string[]
   createdAt: string
   likes: number
   Revivals: number
@@ -101,16 +100,6 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
             <p className="text-base leading-relaxed text-foreground">
               {story.content.length > 200 ? `${story.content.substring(0, 200)}...` : story.content}
             </p>
-
-            {story.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {story.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="text-xs">
-                    #{tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
 
             <div className="flex items-center gap-4 pt-2 border-t">
               <div className="flex items-center gap-1 text-sm text-muted-foreground">

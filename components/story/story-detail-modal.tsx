@@ -12,7 +12,6 @@ interface Story {
   content: string
   category: string
   era: string
-  tags: string[]
   author: {
     name: string
     avatar?: string
@@ -126,16 +125,6 @@ export function StoryDetailModal({
             <p className="text-base leading-relaxed text-foreground whitespace-pre-wrap">{story.content}</p>
           </div>
 
-          {/* タグ */}
-          {story.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {story.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  #{tag}
-                </Badge>
-              ))}
-            </div>
-          )}
 
           {/* アクションボタン */}
           <div className="flex items-center justify-between py-4 border-y">

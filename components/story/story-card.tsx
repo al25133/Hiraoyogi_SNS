@@ -12,7 +12,6 @@ interface Story {
   content: string
   category: string
   era: string
-  tags: string[]
   author: {
     name: string
     avatar?: string
@@ -105,15 +104,7 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
           )}
         </div>
 
-        {story.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {story.tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
-                #{tag}
-              </Badge>
-            ))}
-          </div>
-        )}
+      
 
         <div className="flex items-center justify-between pt-2 border-t">
           <div className="flex items-center gap-4">

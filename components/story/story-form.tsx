@@ -20,19 +20,8 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
   const [content, setContent] = useState("")
   const [category, setCategory] = useState("")
   const [era, setEra] = useState("")
-  const [tags, setTags] = useState<string[]>([])
-  const [newTag, setNewTag] = useState("")
 
-  const handleAddTag = () => {
-    if (newTag.trim() && !tags.includes(newTag.trim())) {
-      setTags([...tags, newTag.trim()])
-      setNewTag("")
-    }
-  }
 
-  const handleRemoveTag = (tagToRemove: string) => {
-    setTags(tags.filter((tag) => tag !== tagToRemove))
-  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -41,7 +30,6 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
       content,
       category,
       era,
-      tags,
       createdAt: new Date().toISOString(),
     }
     onSubmit?.(story)
@@ -50,7 +38,6 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
     setContent("")
     setCategory("")
     setEra("")
-    setTags([])
   }
 
   return (
@@ -155,22 +142,6 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
                 追加
               </Button>
             </div>
-            {tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-2">
-                {tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="text-sm">
-                    {tag}
-                    <button
-                      type="button"
-                      onClick={() => handleRemoveTag(tag)}
-                      className="ml-1 text-xs hover:text-destructive"
-                    >
-                      ×
-                    </button>
-                  </Badge>
-                ))}
-              </div>
-            )}
           </div>
 
           <Button type="submit" className="w-full h-12 text-base">

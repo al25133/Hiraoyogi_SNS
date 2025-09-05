@@ -19,7 +19,6 @@ const sampleStories = [
       "戦争が終わった頃、私たちは何もない中でも工夫して遊んでいました。空き缶でけん玉を作ったり、新聞紙で折り紙をしたり。物がない時代だからこそ、創造力が育ったのかもしれません。近所の子供たちと一緒に、夕方まで外で遊び回っていた日々が懐かしいです。\n\n特に印象に残っているのは、みんなでビー玉遊びをしたことです。道路に穴を掘って、そこにビー玉を入れる遊びでした。今思えば危険でしたが、車もほとんど通らない時代でしたから。勝った人がみんなのビー玉をもらえるルールで、とても真剣に遊んでいました。",
     category: "childhood",
     era: "1940s",
-    tags: ["遊び", "戦後", "子供時代"],
     author: {
       name: "田中花子",
       type: "grandparent" as const,
@@ -38,7 +37,6 @@ const sampleStories = [
       "昔の正月は今とは全く違いました。12月の終わりから準備を始めて、餅つきは家族総出で行いました。おせち料理も全て手作りで、母と祖母が何日もかけて作っていました。元旦には着物を着て、親戚みんなで集まって新年の挨拶をしました。\n\n子供たちは羽根つきやコマ回し、かるた取りをして遊びました。お年玉も今ほど多くはありませんでしたが、それでもとても嬉しかったものです。一年で一番特別な時間でした。",
     category: "festival",
     era: "1960s",
-    tags: ["正月", "家族", "伝統"],
     author: {
       name: "佐藤一郎",
       type: "grandparent" as const,
@@ -188,8 +186,7 @@ export default function FeedPage() {
   const filteredStories = stories.filter((story) => {
     const matchesSearch =
       story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      story.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      story.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+      story.content.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesCategory = categoryFilter === "all" || story.category === categoryFilter
     const matchesEra = eraFilter === "all" || story.era === eraFilter
 
