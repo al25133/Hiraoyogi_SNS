@@ -29,16 +29,14 @@ interface ProfileFormProps {
 }
 
 const availableInterests = [
-  { id: "childhood", label: "子供時代の思い出" },
+  { id: "childhood", label: "子供時代" },
   { id: "work", label: "仕事・職業" },
   { id: "family", label: "家族・結婚" },
   { id: "culture", label: "文化・伝統" },
   { id: "food", label: "料理・食べ物" },
   { id: "festival", label: "祭り・行事" },
   { id: "technology", label: "技術・道具" },
-  { id: "travel", label: "旅行・地域" },
-  { id: "education", label: "教育・学校" },
-  { id: "war", label: "戦争体験" },
+  { id: "other", label: "その他" },
 ]
 
 export function ProfileForm({ profile, onSave }: ProfileFormProps) {
