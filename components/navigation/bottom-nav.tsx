@@ -16,12 +16,6 @@ export function BottomNav() {
       active: pathname === "/feed",
     },
     {
-      href: "/search",
-      icon: Search,
-      label: "検索",
-      active: pathname === "/search",
-    },
-    {
       href: "/post",
       icon: PlusCircle,
       label: "投稿",
