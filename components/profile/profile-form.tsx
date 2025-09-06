@@ -233,7 +233,7 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
           <CardTitle className="text-xl font-serif text-primary">興味のあるカテゴリー</CardTitle>
           <CardDescription>
             {formData.type === "grandparent"
-              ? "どのような昔話を投稿したいですか？"
+              ? "どのような昔話を語りたいですか？"
               : "どのような昔話に興味がありますか？"}
           </CardDescription>
         </CardHeader>

@@ -18,7 +18,7 @@ export function BottomNav() {
     {
       href: "/post",
       icon: PlusCircle,
-      label: "投稿",
+      label: "昔話",
       active: pathname === "/post",
     },
     {

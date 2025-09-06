@@ -10,7 +10,7 @@ export default function PostPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleStorySubmit = (story: any) => {
-    console.log("投稿された昔話:", story)
+    console.log("語られた昔話:", story)
     // ここで実際のAPI呼び出しを行う
     setIsSubmitted(true)
 
@@ -25,7 +25,7 @@ export default function PostPage() {
       <div className="min-h-screen  flex items-center justify-center p-4">
         <div className="text-center space-y-4">
           <div className="text-6xl">🎉</div>
-          <h2 className="text-2xl font-serif text-primary">昔話を投稿しました！</h2>
+          <h2 className="text-2xl font-serif text-primary">昔話を語りました！</h2>
           <p className="text-base text-muted-foreground">あなたの大切な思い出が若い世代に届けられます</p>
           <p className="text-sm text-muted-foreground">まもなくフィードページに移動します...</p>
         </div>

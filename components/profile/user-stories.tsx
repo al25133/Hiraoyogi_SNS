@@ -52,8 +52,8 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
     return (
       <Card>
         <CardContent className="text-center py-12">
-          <p className="text-lg text-muted-foreground mb-4">まだ昔話を投稿していません</p>
-          <Button>最初の昔話を投稿する</Button>
+          <p className="text-lg text-muted-foreground mb-4">まだ昔話を語っていません</p>
+          <Button>最初の昔話を語る</Button>
         </CardContent>
       </Card>
     )

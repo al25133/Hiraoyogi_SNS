@@ -75,7 +75,7 @@ const sampleNotifications: Notification[] = [
   {
     id: "1",
     type: "comment",
-    message: "あなたの投稿に新しいコメントがありました",
+    message: "あなたの昔話に新しいコメントがありました",
     date: "2024-09-01 10:30",
     isRead: false,
   },
@@ -176,7 +176,7 @@ export default function ProfilePage() {
               value="stories"
               className="text-base data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none"
             >
-              投稿した昔話 ({publishedStories.length})
+              語った昔話 ({publishedStories.length})
             </TabsTrigger>
             <TabsTrigger
               value="drafts"
@@ -197,7 +197,7 @@ export default function ProfilePage() {
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-serif text-primary">公開中の昔話</h2>
                 <Link href="/post">
-                  <Button>新しい昔話を投稿</Button>
+                  <Button>新しい昔話を語る</Button>
                 </Link>
               </div>
               <UserStories

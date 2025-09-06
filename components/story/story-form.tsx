@@ -43,7 +43,7 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl font-serif text-primary">昔話を投稿する</CardTitle>
+        <CardTitle className="text-2xl font-serif text-primary">昔話を語る</CardTitle>
         <CardDescription className="text-base">あなたの大切な思い出や経験を若い世代に伝えましょう</CardDescription>
       </CardHeader>
       <CardContent>
@@ -129,7 +129,7 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
           </div>
 
           <Button type="submit" className="w-full h-12 text-base">
-            昔話を投稿する
+            昔話を語る
           </Button>
         </form>
       </CardContent>
