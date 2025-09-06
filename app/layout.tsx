@@ -30,7 +30,7 @@ export default function RootLayout({
 
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
-      {/* --bg-url を CSS カスタムプロパティとして注入（globals.css で var(--bg-url) を使う） */}      <body
+      <body
         className="font-sans antialiased min-h-screen bg-cover bg-center"
         style={
           {

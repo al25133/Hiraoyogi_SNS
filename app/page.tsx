@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen  flex items-center justify-center">
       <div className="text-center">
-         <Image  src="/logo.png" alt="StarRe Logo" className="h-50 w-auto" width={732} height={341} />
+         <Image  src="/logo.png" alt="StarRe Logo" className="h-50 w-auto" width={732} height={341} unoptimized />
         <p className="text-muted-foreground h-30">読み込み中...</p>
       </div>
     </div>
