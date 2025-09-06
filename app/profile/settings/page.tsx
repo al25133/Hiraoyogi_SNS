@@ -1,12 +1,13 @@
+// app/profile/settings/page.tsx
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { ArrowLeft, Bell, Shield, Palette, HelpCircle } from "lucide-react"
+import { ArrowLeft, Bell, Shield, Palette, HelpCircle, Monitor } from "lucide-react"
 import Link from "next/link"
 
 export default function SettingsPage() {
@@ -21,7 +22,19 @@ export default function SettingsPage() {
     showEmail: false,
   })
 
-  const { theme, setTheme } = useTheme()
+  // next-themes
+  const { theme, setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // UI 上で「現在どれが有効か」を判定するロジック：
+  // - userTheme: ユーザーが明示的に選んだ theme（"light" | "dark" | "system"）
+  // - effectiveTheme: 実際にページに反映されている（resolvedTheme）
+  const userTheme = theme // "light" | "dark" | "system"
+  const effectiveTheme = mounted ? (userTheme === "system" ? resolvedTheme : userTheme) : undefined
 
   return (
     <div className="min-h-screen ">
@@ -40,9 +53,9 @@ export default function SettingsPage() {
         </div>
       </header>
 
-      {/* メインコンテンツ */}
+      {/* メイン */}
       <main className="max-w-4xl mx-auto p-4 space-y-6">
-        {/* 通知設定 */}
+         {/* 通知設定 */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl font-serif text-primary">
@@ -137,7 +150,6 @@ export default function SettingsPage() {
             </div>
           </CardContent>
         </Card>
-
         {/* 表示設定 */}
         <Card>
           <CardHeader>
@@ -147,30 +159,43 @@ export default function SettingsPage() {
             </CardTitle>
             <CardDescription>アプリの見た目を調整できます</CardDescription>
           </CardHeader>
+
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
               <Label className="text-base">テーマ</Label>
+
+              {/* ライト / ダーク / システム の三択に */}
               <div className="flex gap-2">
                 <Button
-                  variant={theme === "light" ? "default" : "outline"}
+                  variant={mounted && userTheme === "light" ? "default" : "outline"}
                   size="sm"
                   onClick={() => setTheme("light")}
                 >
                   ライト
                 </Button>
+
                 <Button
-                  variant={theme === "dark" ? "default" : "outline"}
+                  variant={mounted && userTheme === "dark" ? "default" : "outline"}
                   size="sm"
                   onClick={() => setTheme("dark")}
                 >
                   ダーク
+                </Button>
+
+                <Button
+                  variant={mounted && userTheme === "system" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setTheme("system")}
+                >
+                  <Monitor className="h-4 w-4 mr-2" />
+                  システムに従う
                 </Button>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* ヘルプ・サポート */}
+        {/* 通知 / ヘルプは既存ロジックのまま */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl font-serif text-primary">

@@ -1,8 +1,11 @@
+// app/layout.tsx
 import type React from "react"
-import { ThemeProvider } from "next-themes"
-import type { Metadata } from "next"
 import { Noto_Sans_JP, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
+
+// ここではローカルの ThemeProvider（next-themes をラップしたもの）が components にある想定
+// 既に components/theme-provider.tsx があるのでそれを使います（props を渡せます）
+import { ThemeProvider } from "@/components/theme-provider"
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -16,30 +19,23 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 })
 
-export const metadata: Metadata = {
-  title: "StarRe: -未来つなぎ-",
-  description: "祖父母と孫をつなぐ、昔話と文化を共有するソーシャルネットワーク",
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
   return (
-    <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
+    // SSR/CSR でテーマが切り替わったときに起きる hydration mismatch を緩和するため suppressHydrationWarning を追加
+    <html lang="ja" suppressHydrationWarning className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
       <body
         className="font-sans antialiased min-h-screen bg-cover bg-center"
         style={
           {
-            // TypeScript のため any キャスト。CSS カスタムプロパティは文字列で渡す
+            // base path を使って背景画像を参照（既存ロジックを踏襲）
             ["--bg-url" as any]: `url(${base}/background.png)`,
           } as React.CSSProperties
         }
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        {/* ThemeProvider に system を既定にして attribute="class" を渡す */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>
