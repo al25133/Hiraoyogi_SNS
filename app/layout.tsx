@@ -26,13 +26,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
-      <body
+      {/* --bg-url を CSS カスタムプロパティとして注入（globals.css で var(--bg-url) を使う） */}      <body
         className="font-sans antialiased min-h-screen bg-cover bg-center"
-        style={{
-          backgroundImage: `url("/background.png")`,
-        }}
+        style={
+          {
+            // TypeScript のため any キャスト。CSS カスタムプロパティは文字列で渡す
+            ["--bg-url" as any]: `url(${base}/background.png)`,
+          } as React.CSSProperties
+        }
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
