@@ -12,10 +12,8 @@ const nextConfig = {
   },
   output: 'export',
   trailingSlash: true,
-  /*basePath: process.env.NODE_ENV === 'production' ? '/StarRe' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/StarRe/' : '',*/
-  basePath: "/StarRe",
-  assetPrefix: "/StarRe/",
+  basePath: process.env.NODE_ENV === 'production' ? '/StarRe' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/StarRe/' : '',
 }
 
 export default nextConfig
