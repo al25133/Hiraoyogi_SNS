@@ -115,7 +115,7 @@ export default function FeedPage() {
     )
   }
 
-    const handleRevival = (storyId: string) => {
+  const handleRevival = (storyId: string) => {
     setStories(
       stories.map((story) =>
         story.id === storyId
@@ -196,27 +196,26 @@ export default function FeedPage() {
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       {/* ヘッダー */}
-      <header className="bg-header border-b sticky top-0 z-10">
+      <header className="bg-header border-b sticky top-0 z-10 w-full">
         <div className="max-w-4xl mx-auto p-4">
-          <div className="flex items-center justify-between mb-4">
-            <img src="/header.png" alt="StarRe Logo" className="h-10 w-auto" />
-            {/* <h1 className="text-2xl font-serif text-primary">StarRe:</h1> */}
-        <div className="flex items-center gap-8">
-          <Link href="/post">
-            <Button className="gap-3">
-              <PlusCircle className="h-4 w-4" />
-              語る
-            </Button>
-          </Link>
-          
-          <Link href="/profile">
-              <Button variant="outline" className="rounded-full w-10 h-10 p-0">
-                <span className="sr-only">プロフィール</span>
-                <User className="h-5 w-5" />
-              </Button>
-          </Link>
-        </div>
-      </div>
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <img src="/header.png" alt="StarRe Logo" className="h-8 sm:h-10 w-auto" />
+            <div className="flex items-center gap-3 sm:gap-6">
+              <Link href="/post">
+                <Button size="sm" className="gap-2">
+                  <PlusCircle className="h-4 w-4" />
+                  <span className="hidden sm:inline">語る</span>
+                </Button>
+              </Link>
+
+              <Link href="/profile">
+                <Button variant="outline" size="icon" className="rounded-full">
+                  <User className="h-5 w-5" />
+                  <span className="sr-only">プロフィール</span>
+                </Button>
+              </Link>
+            </div>
+          </div>
 
           {/* 検索・フィルター */}
           <div className="space-y-3">
@@ -230,9 +229,10 @@ export default function FeedPage() {
               />
             </div>
 
-            <div className="flex gap-3">
+            {/* カテゴリー + 時代 */}
+            <div className="flex flex-col sm:flex-row gap-3">
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger className="flex-1 h-10">
+                <SelectTrigger className="w-full sm:flex-1 h-10">
                   <SelectValue placeholder="カテゴリー" />
                 </SelectTrigger>
                 <SelectContent>
@@ -249,7 +249,7 @@ export default function FeedPage() {
               </Select>
 
               <Select value={eraFilter} onValueChange={setEraFilter}>
-                <SelectTrigger className="flex-1 h-10">
+                <SelectTrigger className="w-full sm:flex-1 h-10">
                   <SelectValue placeholder="時代" />
                 </SelectTrigger>
                 <SelectContent>

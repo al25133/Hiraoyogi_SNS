@@ -21,7 +21,7 @@ interface Story {
   likes: number
   comments: number
   isLiked?: boolean
-  Revivals:number
+  Revivals: number
   isRevived?: boolean
 }
 
@@ -34,7 +34,14 @@ interface StoryCardProps {
   onClick?: (story: Story) => void
 }
 
-export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick }: StoryCardProps) {
+export function StoryCard({
+  story,
+  onLike,
+  onRevival,
+  onComment,
+  onShare,
+  onClick,
+}: StoryCardProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     return date.toLocaleDateString("ja-JP", {
@@ -61,7 +68,8 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
   return (
     <Card className="w-full">
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          {/* 左側：アイコン＋名前 */}
           <div className="flex items-center gap-3">
             <Avatar className="h-12 w-12">
               <AvatarImage src={story.author.avatar || "/placeholder.svg"} />
@@ -70,10 +78,19 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
               </AvatarFallback>
             </Avatar>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <h4 className="font-medium text-base">{story.author.name}</h4>
-                <Badge variant={story.author.type === "grandparent" ? "default" : "secondary"} className="text-xs">
-                  {story.author.type === "grandparent" ? "おじいちゃん・おばあちゃん" : "お孫さん"}
+                <Badge
+                  variant={
+                    story.author.type === "grandparent"
+                      ? "default"
+                      : "secondary"
+                  }
+                  className="text-xs"
+                >
+                  {story.author.type === "grandparent"
+                    ? "おじいちゃん・おばあちゃん"
+                    : "お孫さん"}
                 </Badge>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
@@ -82,7 +99,9 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
               </div>
             </div>
           </div>
-          <div className="flex gap-2">
+
+          {/* 右側：カテゴリー＋時代 */}
+          <div className="flex flex-col sm:flex-row gap-2">
             <Badge variant="outline">{getCategoryLabel(story.category)}</Badge>
             <Badge variant="outline">{story.era}</Badge>
           </div>
@@ -94,8 +113,10 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
           <h3 className="text-xl font-serif text-primary mb-3 leading-relaxed hover:text-primary/80 transition-colors">
             {story.title}
           </h3>
-          <p className="text-base leading-relaxed text-foreground whitespace-pre-wrap">
-            {story.content.length > 300 ? `${story.content.substring(0, 300)}...` : story.content}
+          <p className="text-base leading-relaxed text-foreground whitespace-pre-wrap break-words">
+            {story.content.length > 300
+              ? `${story.content.substring(0, 300)}...`
+              : story.content}
           </p>
           {story.content.length > 300 && (
             <Button variant="link" className="p-0 h-auto text-accent mt-2">
@@ -103,8 +124,6 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
             </Button>
           )}
         </div>
-
-      
 
         <div className="flex items-center justify-between pt-2 border-t">
           <div className="flex items-center gap-4">
@@ -115,9 +134,13 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
                 e.stopPropagation()
                 onLike?.(story.id)
               }}
-              className={`gap-2 ${story.isLiked ? "text-red-500" : "text-muted-foreground"}`}
+              className={`gap-2 ${
+                story.isLiked ? "text-red-500" : "text-muted-foreground"
+              }`}
             >
-              <Heart className={`h-4 w-4 ${story.isLiked ? "fill-current" : ""}`} />
+              <Heart
+                className={`h-4 w-4 ${story.isLiked ? "fill-current" : ""}`}
+              />
               {story.likes}
             </Button>
             <Button
@@ -127,9 +150,13 @@ export function StoryCard({ story, onLike,onRevival, onComment, onShare, onClick
                 e.stopPropagation()
                 onRevival?.(story.id)
               }}
-              className={`gap-2 ${story.isRevived ? "text-green-500" : "text-muted-foreground"}`}
+              className={`gap-2 ${
+                story.isRevived ? "text-green-500" : "text-muted-foreground"
+              }`}
             >
-              <Pickaxe className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
+              <Pickaxe
+                className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`}
+              />
               {story.Revivals}
             </Button>
             <Button
