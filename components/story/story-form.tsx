@@ -73,7 +73,7 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
-                className="h-12 w-full rounded-md border border-input bg-background px-3 text-base"
+                className="h-12 w-full rounded-md border border-input  px-3 text-base"
               >
                 <option value="">カテゴリーを選択</option>
                 <option value="childhood">子供時代</option>
@@ -97,7 +97,7 @@ export function StoryForm({ onSubmit }: StoryFormProps) {
                 value={era}
                 onChange={(e) => setEra(e.target.value)}
                 required
-                className="h-12 w-full rounded-md border border-input bg-background px-3 text-base"
+                className="h-12 w-full rounded-md border border-input  px-3 text-base"
               >
                 <option value="">時代を選択</option>
                 <option value="1930s">1930年代</option>

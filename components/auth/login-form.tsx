@@ -13,7 +13,7 @@ export function LoginForm() {
   const [isLogin, setIsLogin] = useState(true)
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen  flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-serif text-primary">StarRe: -未来つなぎ-</CardTitle>

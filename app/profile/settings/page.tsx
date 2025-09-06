@@ -24,7 +24,7 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       {/* ヘッダー */}
       <header className="bg-header border-b">
         <div className="max-w-4xl mx-auto p-4">

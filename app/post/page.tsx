@@ -22,7 +22,7 @@ export default function PostPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="min-h-screen  flex items-center justify-center p-4">
         <div className="text-center space-y-4">
           <div className="text-6xl">🎉</div>
           <h2 className="text-2xl font-serif text-primary">昔話を投稿しました！</h2>
@@ -34,7 +34,7 @@ export default function PostPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4">
+    <div className="min-h-screen  p-4">
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
           <Link href="/feed">

@@ -137,7 +137,7 @@ export default function ProfilePage() {
   const unreadCount = notifications.filter((n) => !n.isRead).length
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       {/* ヘッダー */}
       <header className="bg-header border-b">
         <div className="max-w-4xl mx-auto p-4">
@@ -219,7 +219,7 @@ export default function ProfilePage() {
                     <Card
                       key={n.id}
                       className={`shadow-sm border rounded-2xl cursor-pointer transition 
-                        ${n.isRead ? "bg-background" : "bg-muted/50 border-primary/30"}`}
+                        ${n.isRead ? "" : "bg-muted/50 border-primary/30"}`}
                       onClick={() => markAsRead(n.id)}
                     >
                       <CardContent className="flex items-center gap-4 p-4">

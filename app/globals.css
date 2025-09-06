@@ -140,7 +140,34 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    position: relative;
+    min-height: 100vh;
+    background: none; /* ← backgroundリセット */
+  }
+
+  /* 背景色レイヤー */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-color: var(--background); /* ダーク/ライト対応 */
+  }
+
+  /* 背景画像レイヤー */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.5; /* ←透け具合 */
+    pointer-events: none;
   }
 }

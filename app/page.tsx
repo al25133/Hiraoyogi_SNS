@@ -12,7 +12,7 @@ export default function HomePage() {
   }, [router])
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="min-h-screen  flex items-center justify-center">
       <div className="text-center">
          <img src="/logo.png" alt="StarRe Logo" className="h-50 w-auto" />
         <p className="text-muted-foreground h-30">読み込み中...</p>
