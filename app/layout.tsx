@@ -28,9 +28,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased">
+      <body
+        className="font-sans antialiased min-h-screen bg-cover bg-center"
+        style={{
+          backgroundImage: `url("/background.png")`,
+        }}
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        </ThemeProvider>{children}</body>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

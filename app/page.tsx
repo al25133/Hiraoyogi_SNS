@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export default function HomePage() {
   const router = useRouter()
@@ -14,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen  flex items-center justify-center">
       <div className="text-center">
-         <img src="/logo.png" alt="StarRe Logo" className="h-50 w-auto" />
+         <Image  src="/logo.png" alt="StarRe Logo" className="h-50 w-auto" width={732} height={341} />
         <p className="text-muted-foreground h-30">読み込み中...</p>
       </div>
     </div>
