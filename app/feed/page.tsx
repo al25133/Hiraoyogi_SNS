@@ -4,7 +4,6 @@
 import { useState } from "react"
 import { StoryCard } from "@/components/story/story-card"
 import { StoryDetailModal } from "@/components/story/story-detail-modal"
-import { BottomNav } from "@/components/navigation/bottom-nav"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -358,8 +357,6 @@ export default function FeedPage() {
         onLikeComment={handleLikeComment}
       />
 
-      {/* ボトムナビゲーション（モバイル用） */}
-      <BottomNav />
     </div>
   )
 }
