@@ -67,55 +67,56 @@
    ------------------------------------------------------------ */
 .dark {
   /* base surfaces */
-  --background: #07120a;            /* very dark green-black */
-  --foreground: #ecfdf5;            /* pale mint text */
-  --card: #072015;                  /* dark card */
-  --card-foreground: #ecfdf5;
-  --popover: #071814;
-  --popover-foreground: #ecfdf5;
+  --background: #101410;            /* background */
+  --foreground: #e0e3dd;            /* on-background */
+  --card: #101410;                  /* surface */
+  --card-foreground: #e0e3dd;       /* on-surface */
+  --popover: #101410;               /* surface */
+  --popover-foreground: #e0e3dd;    /* on-surface */
 
-  /* Primary: bright lime for poppy accents */
-  --primary: #A3E635;               /* lime-400 */
-  --primary-foreground: #04260a;    /* dark contrast text */
+  /* Primary */
+  --primary: #93DCB0;               /* primary */
+  --primary-foreground: #00391f;    /* on-primary */
 
-  --secondary: #BEF264;             /* lime-300 */
-  --secondary-foreground: #04260a;
+  /* Secondary */
+  --secondary: #b4ccb8;             /* secondary */
+  --secondary-foreground: #20352b;  /* on-secondary */
 
-  /* Muted surfaces */
-  --muted: #071812;
-  --muted-foreground: #cfeeda;
+  /* Muted (use surface-variant) */
+  --muted: #404943;                 /* surface-variant */
+  --muted-foreground: #bfc9c1;      /* on-surface-variant */
 
-  --accent: #bbf7d0;
-  --accent-foreground: #04260a;
+  /* Accent → tertiary */
+  --accent: #a1cce0;                /* tertiary */
+  --accent-foreground: #003547;     /* on-tertiary */
 
-  /* Destructive */
-  --destructive: #ff6b6b;
-  --destructive-foreground: #ffffff;
+  /* Destructive → error */
+  --destructive: #ffb4ab;           /* error */
+  --destructive-foreground: #690005;/* on-error */
 
   /* Borders / inputs / rings */
-  --border: rgba(255,255,255,0.06);
-  --input: #24836d;
-  --ring: #A3E635;
+  --border: #2a322d;                /* 全体のborderも合わせて暗めに */
+  --input: #364b41;                 /* secondary-container */
+  --ring: #93DCB0;                  /* primary */
 
-  /* Chart palette (dark-friendly) */
-  --chart-1: #bbf7d0;
-  --chart-2: #86efac;
-  --chart-3: #65a30d;
-  --chart-4: #fb7185;
-  --chart-5: #ccfbf1;
+  /* Chart palette (Material-ish) */
+  --chart-1: #93DCB0;               /* primary */
+  --chart-2: #b4ccb8;               /* secondary */
+  --chart-3: #a1cce0;               /* tertiary */
+  --chart-4: #ffb4ab;               /* error */
+  --chart-5: #d0e8d4;               /* on-secondary-container */
 
   /* Header / sidebar */
-  --header: #579e74;
-  --sidebar: #07120a;
-  --sidebar-foreground: #ecfdf5;
-  --sidebar-primary: #A3E635;
-  --sidebar-primary-foreground: #04260a;
-  --sidebar-accent: #BEF264;
-  --sidebar-accent-foreground: #04260a;
-  --sidebar-border: rgba(255,255,255,0.04);
-  --sidebar-ring: #A3E635;
+  --header: #1b6e4f; 
+  --sidebar: #101410;               /* surface */
+  --sidebar-foreground: #e0e3dd;    /* on-surface */
+  --sidebar-primary: #93DCB0;       /* primary */
+  --sidebar-primary-foreground: #00391f; /* on-primary */
+  --sidebar-accent: #a1cce0;        /* tertiary */
+  --sidebar-accent-foreground: #003547; /* on-tertiary */
+  --sidebar-border: #2a322d;        /* もう少し暗めのoutline-variant */
+  --sidebar-ring: #93DCB0;          /* primary */
 }
-
 /* ------------------------------------------------------------
    Mapping for internal tokens (used by components)
    ------------------------------------------------------------ */
