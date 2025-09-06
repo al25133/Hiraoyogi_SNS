@@ -35,7 +35,7 @@ const sampleStories = [
     likes: 24,
     comments: 2,
     isLiked: false,
-    Revivals: 24,
+    revivals: 24,
     isRevived: false,
   },
   {
@@ -53,7 +53,7 @@ const sampleStories = [
     likes: 18,
     comments: 1,
     isLiked: true,
-    Revivals: 24,
+    revivals: 24,
     isRevived: false,
   },
   {
@@ -71,7 +71,7 @@ const sampleStories = [
     likes: 48,
     comments: 10,
     isLiked: true,
-    Revivals: 50,
+    revivals: 50,
     isRevived: true,
   },
   {
@@ -89,7 +89,7 @@ const sampleStories = [
     likes: 20,
     comments: 3,
     isLiked: false,
-    Revivals: 5,
+    revivals: 5,
     isRevived: false,
   },
 ]
@@ -166,7 +166,7 @@ export default function FeedPage() {
           ? {
               ...story,
               isRevived: !story.isRevived,
-              Revivals: story.isRevived ? story.Revivals - 1 : story.Revivals + 1,
+              revivals: story.isRevived ? story.revivals - 1 : story.revivals + 1,
             }
           : story,
       ),

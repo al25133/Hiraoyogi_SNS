@@ -19,7 +19,7 @@ interface Story {
   }
   createdAt: string
   likes: number
-  Revivals: number
+  revivals: number
   comments: number
   isLiked?: boolean
   isRevived?: boolean
@@ -135,7 +135,7 @@ export function StoryDetailModal({
                 onClick={() => onLike?.(story.id)}
                 className={`gap-2 ${story.isLiked ? "text-red-500" : "text-muted-foreground"}`}
               >
-                <Heart className={`h-4 w-4 ${story.isLiked ? "fill-current" : ""}`} />
+                <Heart className={`h-6 w-6 ${story.isLiked ? "fill-current" : ""}`} />
                 {story.likes}
               </Button>
               <Button
@@ -144,11 +144,11 @@ export function StoryDetailModal({
                 onClick={() => onRevival?.(story.id)}
                 className={`gap-2 ${story.isRevived ? "text-green-500" : "text-muted-foreground"}`}
               >
-                <Pickaxe className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
-                {story.Revivals}
+                <Pickaxe className={`h-6 w-6 ${story.isRevived ? "fill-current" : ""}`} />
+                {story.revivals}
               </Button>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <MessageCircle className="h-4 w-4" />
+                <MessageCircle className="h-6 w-6" />
                 <span>{comments.length}件のコメント</span>
               </div>
             </div>
@@ -158,7 +158,7 @@ export function StoryDetailModal({
               onClick={() => onShare?.(story.id)}
               className="gap-2 text-muted-foreground"
             >
-              <Share2 className="h-4 w-4" />
+              <Share2 className="h-6 w-6" />
               共有
             </Button>
           </div>

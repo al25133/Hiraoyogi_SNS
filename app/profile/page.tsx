@@ -5,7 +5,7 @@ import { ProfileForm } from "@/components/profile/profile-form"
 import { UserStories } from "@/components/profile/user-stories"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, Settings, Bell, Heart, MessageCircle, UserPlus } from "lucide-react"
+import { ArrowLeft, Settings, Bell, Pickaxe, Heart, MessageCircle, UserPlus } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 
@@ -40,7 +40,7 @@ const sampleStories = [
     id: "2",
     title: "昔の正月料理の思い出",
     content:
-      "年の瀬、家中に漂う煮しめの甘辛い香り。昔の正月準備は、母や祖母を中心に家族総出の一大行事でした。子どもたちも黒豆の選別や栗きんとん作りを小さな手で手伝ったものです。\n大晦日の夜、伊達巻や数の子、田作りなどが美しく重箱に詰められていく光景は、まるで宝箱のようでした。不格好でも手作りの味は格別で、元旦に家族みんなで囲むお雑煮とともに、新しい年の始まりを実感させてくれました。\n手間暇かけた分だけ、その賑わいや味わいは忘れられない、温かい家族の思い出です。",
+      "年の瀬、家中に漂う煮しめの甘辛い香り。昔の正月準備は、母や祖母を中心に家族総出の一大行事でした。子どもたちも黒豆の選別や栗きんとん作りを小さな手で手伝ったものです。\n大晦日の夜、伊達巻や数の子、田作りなどが美しく重箱に詰められていく光景は、まるで宝箱のようでした。不格好でも手作りの味は格別で、元旦に家族みんなで囲むお雑煮とともに、新しい年の始まりを実感させてくれました。手間暇かけた分だけ、その賑わいや味わいは忘れられない、温かい家族の思い出です。",
     category: "food",
     era: "1950s",
     createdAt: "2024-01-10T15:30:00Z",
@@ -49,23 +49,11 @@ const sampleStories = [
     comments: 12,
     isPublished: true,
   },
-  {
-    id: "3",
-    title: "学校給食の始まり",
-    content: "私が小学生の頃、学校給食が始まりました。最初はパンと牛乳だけでしたが...",
-    category: "childhood",
-    era: "1950s",
-    createdAt: "2024-01-08T09:00:00Z",
-    likes: 0,
-    revivals: 0,
-    comments: 0,
-    isPublished: false,
-  },
 ]
 
 type Notification = {
   id: string
-  type: "comment" | "revival" | "follow" | "other"
+  type: "comment" | "like" | "revival" | "follow" | "other"
   message: string
   date: string
   isRead: boolean
@@ -100,11 +88,19 @@ const sampleNotifications: Notification[] = [
     date: "2024-09-04 12:00",
     isRead: true,
   },
+  {
+    id: "5",
+    type: "like",
+    message: "あなたの昔話がいいねされました",
+    date: "2024-09-04 14:37",
+    isRead: true,
+  },
 ]
 
 const notificationIcons: Record<Notification["type"], React.ElementType> = {
   comment: MessageCircle,
-  revival: Heart,
+  like: Heart,
+  revival: Pickaxe,
   follow: UserPlus,
   other: Bell,
 }
@@ -127,10 +123,9 @@ export default function ProfilePage() {
     setStories(stories.filter((story) => story.id !== storyId))
   }
 
+  // 変更点：通知クリックで既読/未読をトグルする
   const markAsRead = (id: string) => {
-    setNotifications((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, isRead: true } : n))
-    )
+    setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, isRead: !n.isRead } : n)))
   }
 
   const publishedStories = stories.filter((story) => story.isPublished)
@@ -229,9 +224,7 @@ export default function ProfilePage() {
                         <div className="flex-1">
                           <p
                             className={`text-sm ${
-                              n.isRead
-                                ? "text-muted-foreground"
-                                : "font-semibold text-foreground"
+                              n.isRead ? "text-muted-foreground" : "font-semibold text-foreground"
                             }`}
                           >
                             {n.message}

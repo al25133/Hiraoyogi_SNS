@@ -13,7 +13,7 @@ interface Story {
   era: string
   createdAt: string
   likes: number
-  Revivals: number
+  revivals: number
   comments: number
   isPublished: boolean
 }
@@ -103,15 +103,15 @@ export function UserStories({ stories, onEdit, onDelete }: UserStoriesProps) {
 
             <div className="flex items-center gap-4 pt-2 border-t">
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <Heart className="h-4 w-4" />
+                <Heart className="h-6 w-6" />
                 {story.likes}
               </div>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <Pickaxe className="h-4 w-4" />
-                {story.Revivals}
+                <Pickaxe className="h-6 w-6" />
+                {story.revivals}
               </div>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                <MessageCircle className="h-4 w-4" />
+                <MessageCircle className="h-6 w-6" />
                 {story.comments}
               </div>
             </div>

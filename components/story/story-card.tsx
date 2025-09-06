@@ -21,7 +21,7 @@ interface Story {
   likes: number
   comments: number
   isLiked?: boolean
-  Revivals: number
+  revivals: number
   isRevived?: boolean
 }
 
@@ -139,7 +139,7 @@ export function StoryCard({
               }`}
             >
               <Heart
-                className={`h-4 w-4 ${story.isLiked ? "fill-current" : ""}`}
+                className={`h-6 w-6 ${story.isLiked ? "fill-current" : ""}`}
               />
               {story.likes}
             </Button>
@@ -155,9 +155,9 @@ export function StoryCard({
               }`}
             >
               <Pickaxe
-                className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`}
+                className={`h-6 w-6 ${story.isRevived ? "fill-current" : ""}`}
               />
-              {story.Revivals}
+              {story.revivals}
             </Button>
             <Button
               variant="ghost"
@@ -168,7 +168,7 @@ export function StoryCard({
               }}
               className="gap-2 text-muted-foreground"
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-6 w-6" />
               {story.comments}
             </Button>
           </div>
@@ -181,7 +181,7 @@ export function StoryCard({
             }}
             className="gap-2 text-muted-foreground"
           >
-            <Share2 className="h-4 w-4" />
+            <Share2 className="h-6 w-6" />
             共有
           </Button>
         </div>
