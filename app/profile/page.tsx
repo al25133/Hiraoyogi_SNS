@@ -213,8 +213,8 @@ export default function ProfilePage() {
                   return (
                     <Card
                       key={n.id}
-                      className={`shadow-sm border rounded-2xl cursor-pointer transition 
-                        ${n.isRead ? "" : "bg-muted/50 border-primary/30"}`}
+                     className={`shadow-sm border rounded-2xl cursor-pointer transition 
++                        ${n.isRead ? "bg-muted/50 border-primary/30":""}`}
                       onClick={() => markAsRead(n.id)}
                     >
                       <CardContent className="flex items-center gap-4 p-4">
