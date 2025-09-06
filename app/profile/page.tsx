@@ -141,7 +141,7 @@ export default function ProfilePage() {
               <Link href="/feed">
                 <Button variant="ghost" className="gap-2">
                   <ArrowLeft className="h-4 w-4" />
-                  フィードに戻る
+                  戻る
                 </Button>
               </Link>
               <h1 className="text-2xl font-serif text-primary">プロフィール</h1>

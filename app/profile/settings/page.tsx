@@ -32,7 +32,7 @@ export default function SettingsPage() {
             <Link href="/profile">
               <Button variant="ghost" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                プロフィールに戻る
+                戻る
               </Button>
             </Link>
             <h1 className="text-2xl font-serif text-primary">設定</h1>
