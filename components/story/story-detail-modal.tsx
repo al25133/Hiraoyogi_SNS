@@ -142,7 +142,7 @@ export function StoryDetailModal({
                 variant="ghost"
                 size="lg"
                 onClick={() => onRevival?.(story.id)}
-                className={`gap-2 ${story.isRevived ? "text-red-500" : "text-muted-foreground"}`}
+                className={`gap-2 ${story.isRevived ? "text-green-500" : "text-muted-foreground"}`}
               >
                 <Pickaxe className={`h-4 w-4 ${story.isRevived ? "fill-current" : ""}`} />
                 {story.Revivals}
