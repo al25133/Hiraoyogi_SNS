@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className="font-sans antialiased min-h-screen bg-cover bg-center"
         style={{
-          backgroundImage: `url("StarRe/background.png")`,
+          backgroundImage: `url("/background.png")`,
         }}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
