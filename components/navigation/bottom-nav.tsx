@@ -9,24 +9,6 @@ export function BottomNav() {
   const pathname = usePathname()
 
   const navItems = [
-    {
-      href: "/feed",
-      icon: Home,
-      label: "ホーム",
-      active: pathname === "/feed",
-    },
-    {
-      href: "/post",
-      icon: PlusCircle,
-      label: "語る",
-      active: pathname === "/post",
-    },
-    {
-      href: "/profile",
-      icon: User,
-      label: "プロフィール",
-      active: pathname === "/profile",
-    },
   ]
 
   return (
