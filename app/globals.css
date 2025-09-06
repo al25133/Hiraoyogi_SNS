@@ -1,131 +1,172 @@
+/* app/globals.css — full file
+   - Light: calm green accents
+   - Dark: lime / yellow-green based, poppy & readable
+*/
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
+/* ------------------------------------------------------------
+   Design tokens — Light theme (default)
+   ------------------------------------------------------------ */
 :root {
-  --background: oklch(1 0 0); /* Pure white */
-  --bg-url: url('/background.png');
-  --foreground: oklch(0.35 0.02 150); /* 落ち着いたダークグリーン系 */
-  --card: oklch(0.98 0.02 160); /* ごく薄いグリーン */
-  --card-foreground: oklch(0.25 0.02 150);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.35 0.02 150);
+  /* Background / surface */
+  --background: #ffffff;            /* page background */
+  --bg-url: url('/background.png'); /* background image (optional) */
 
-  --primary: oklch(0.7032 0.0646 176.29); /* 指定のグリーン #73AD9E */
-  --primary-foreground: oklch(1 0 0); /* 白文字 */
+  /* Text / surfaces */
+  --foreground: #0f1724;         /* slate-like dark text */
+  --card: oklch(0.98 0.02 160);                  /* card background */
+  --card-foreground: #0f1724;
+  --popover: #ffffff;
+  --popover-foreground: #0f1724;
 
-  --secondary: oklch(0.65 0.1 170); /* 補色寄りのライトグリーン */
-  --secondary-foreground: oklch(1 0 0);
+  /* Primary / accents (light) */
+  --primary: #73ad9e;               /* calm green (#73AD9E) */
+  --primary-foreground: #ffffff;
 
-  --muted: oklch(0.98 0.005 150); /* 薄い灰緑 */
-  --muted-foreground: oklch(0.25 0.02 150);
+  --secondary: #a7f3d0;             /* soft mint */
+  --secondary-foreground: #052e00;
 
-  --accent: oklch(0.7 0.1 176); /* 少し鮮やかな緑 */
-  --accent-foreground: oklch(1 0 0);
+  /* Muted / subtle */
+  --muted: #f1f5f9;
+  --muted-foreground: #334155;
 
-  --destructive: oklch(0.55 0.22 25); /* 赤 (エラー用はそのまま) */
-  --destructive-foreground: oklch(1 0 0);
+  --accent: #8ee7b7;
+  --accent-foreground: #052e00;
 
-  --border: oklch(0.9 0.005 150);
-  --input: oklch(0.98 0.005 150);
-  --ring: oklch(0.7032 0.0646 176.29); /* 指定のグリーン */
+  /* Destructive (errors) */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
 
-  --chart-1: oklch(0.75 0.12 170); /* ライトグリーン */
-  --chart-2: oklch(0.65 0.1 200);  /* 青緑 */
-  --chart-3: oklch(0.55 0.08 140); /* グレーグリーン */
-  --chart-4: oklch(0.6 0.18 25);   /* 赤 */
-  --chart-5: oklch(0.65 0.15 90);  /* 黄緑 */
+  /* Borders, inputs, rings */
+  --border: #e6eef0;
+  --input: #ffffff;
+  --ring: #73ad9e;
 
+  /* Chart palette (light-friendly) */
+  --chart-1: #bbf7d0;
+  --chart-2: #86efac;
+  --chart-3: #94a3b8;
+  --chart-4: #f87171;
+  --chart-5: #ccfbf1;
+
+  /* Radii / layout tokens */
   --radius: 0.5rem;
 
-  --header: oklch(0.8344 0.0959 157.12);
-  --sidebar: oklch(0.98 0.02 160);
-  --sidebar-foreground: oklch(0.25 0.02 150);
-  --sidebar-primary: oklch(0.7032 0.0646 176.29);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.65 0.1 170);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.9 0.005 150);
-  --sidebar-ring: oklch(0.7032 0.0646 176.29);
+  /* Header / sidebar */
+  --header: #93DCB0;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f1724;
+  --sidebar-primary: #73ad9e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #a7f3d0;
+  --sidebar-accent-foreground: #052e00;
+  --sidebar-border: #e6eef0;
+  --sidebar-ring: #73ad9e;
 }
 
+/* ------------------------------------------------------------
+   Dark theme tokens — lime / yellow-green based, poppy & readable
+   (applied when .dark class is present on root)
+   ------------------------------------------------------------ */
 .dark {
-  --background: oklch(0.08 0.005 150);
-  --foreground: oklch(0.95 0.005 160);
-  --card: oklch(0.12 0.01 150);
-  --card-foreground: oklch(0.95 0.005 160);
-  --popover: oklch(0.08 0.005 150);
-  --popover-foreground: oklch(0.95 0.005 160);
+  /* base surfaces */
+  --background: #07120a;            /* very dark green-black */
+  --foreground: #ecfdf5;            /* pale mint text */
+  --card: #072015;                  /* dark card */
+  --card-foreground: #ecfdf5;
+  --popover: #071814;
+  --popover-foreground: #ecfdf5;
 
-  --primary: oklch(0.7032 0.0646 176.29); /* 同じグリーン */
-  --primary-foreground: oklch(0.08 0.005 150);
+  /* Primary: bright lime for poppy accents */
+  --primary: #A3E635;               /* lime-400 */
+  --primary-foreground: #04260a;    /* dark contrast text */
 
-  --secondary: oklch(0.4 0.1 170);
-  --secondary-foreground: oklch(0.95 0.005 160);
+  --secondary: #BEF264;             /* lime-300 */
+  --secondary-foreground: #04260a;
 
-  --muted: oklch(0.15 0.01 150);
-  --muted-foreground: oklch(0.65 0.005 150);
+  /* Muted surfaces */
+  --muted: #071812;
+  --muted-foreground: #cfeeda;
 
-  --accent: oklch(0.7 0.1 176);
-  --accent-foreground: oklch(0.08 0.005 150);
+  --accent: #bbf7d0;
+  --accent-foreground: #04260a;
 
-  --destructive: oklch(0.5 0.2 25);
-  --destructive-foreground: oklch(0.95 0.005 160);
+  /* Destructive */
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
 
-  --border: oklch(0.2 0.01 150);
-  --input: oklch(0.15 0.01 150);
-  --ring: oklch(0.7032 0.0646 176.29);
+  /* Borders / inputs / rings */
+  --border: rgba(255,255,255,0.06);
+  --input: #24836d;
+  --ring: #A3E635;
 
-  --chart-1: oklch(0.6 0.15 170);
-  --chart-2: oklch(0.55 0.1 200);
-  --chart-3: oklch(0.65 0.08 140);
-  --chart-4: oklch(0.65 0.2 25);
-  --chart-5: oklch(0.7 0.15 90);
+  /* Chart palette (dark-friendly) */
+  --chart-1: #bbf7d0;
+  --chart-2: #86efac;
+  --chart-3: #65a30d;
+  --chart-4: #fb7185;
+  --chart-5: #ccfbf1;
 
-  --header: oklch(0.8344 0.0959 157.12);
-  --sidebar: oklch(0.1 0.01 150);
-  --sidebar-foreground: oklch(0.95 0.005 160);
-  --sidebar-primary: oklch(0.7032 0.0646 176.29);
-  --sidebar-primary-foreground: oklch(0.08 0.005 150);
-  --sidebar-accent: oklch(0.4 0.1 170);
-  --sidebar-accent-foreground: oklch(0.95 0.005 160);
-  --sidebar-border: oklch(0.2 0.01 150);
-  --sidebar-ring: oklch(0.7032 0.0646 176.29);
+  /* Header / sidebar */
+  --header: #579e74;
+  --sidebar: #07120a;
+  --sidebar-foreground: #ecfdf5;
+  --sidebar-primary: #A3E635;
+  --sidebar-primary-foreground: #04260a;
+  --sidebar-accent: #BEF264;
+  --sidebar-accent-foreground: #04260a;
+  --sidebar-border: rgba(255,255,255,0.04);
+  --sidebar-ring: #A3E635;
 }
 
+/* ------------------------------------------------------------
+   Mapping for internal tokens (used by components)
+   ------------------------------------------------------------ */
 @theme inline {
   --font-sans: var(--font-noto-sans-jp);
   --font-mono: var(--font-jetbrains-mono);
   --font-serif: var(--font-playfair);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-header: var(--header);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -137,27 +178,41 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ------------------------------------------------------------
+   Base layer: apply tokens to base elements and pseudo layers
+   ------------------------------------------------------------ */
 @layer base {
   * {
+    /* Use token-based border & focus ring in utility form */
     @apply border-border outline-ring/50;
   }
 
-  body {
-    position: relative;
-    min-height: 100vh;
-    background: none; /* ← backgroundリセット */
+  html, body, #__next {
+    height: 100%;
   }
 
-  /* 背景色レイヤー */
+  body {
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    font-family: var(--font-sans, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial);
+    color: var(--foreground);
+    background: none; /* background is handled by pseudo layers below */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Background color layer (under content, above page background) */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
-    background-color: var(--background); /* ダーク/ライト対応 */
+    background-color: var(--background);
+    transition: background-color 160ms ease;
   }
 
-  /* 背景画像レイヤー */
+  /* Background image layer (on top of color layer, behind content) */
   body::after {
     content: "";
     position: fixed;
@@ -168,7 +223,37 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.5; /* ←透け具合 */
+    opacity: 0.45; /* slight transparency so content feels layered */
     pointer-events: none;
+    transition: opacity 160ms ease;
+  }
+
+  /* Card default using tokens */
+  .card, .card * {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-color: var(--border);
+  }
+
+  /* Muted background helper */
+  .bg-muted {
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+  }
+
+  /* Small helpers for text */
+  .text-muted-foreground {
+    color: var(--muted-foreground);
+  }
+
+  /* Utility: primary button using tokens for callers that may not use Tailwind directly */
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0,0,0,0.03);
   }
 }
+
+/* End of globals.css */
