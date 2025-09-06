@@ -14,8 +14,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="text-center">
-        <h1 className="text-2xl font-serif text-primary mb-4">StarRe: -未来つなぎ-</h1>
-        <p className="text-muted-foreground">読み込み中...</p>
+         <img src="/logo.png" alt="StarRe Logo" className="h-50 w-auto" />
+        <p className="text-muted-foreground h-30">読み込み中...</p>
       </div>
     </div>
   )
