@@ -7,53 +7,51 @@
    Design tokens — Light theme (default)
    ------------------------------------------------------------ */
 :root {
-  /* Background / surface */
-  --background: #ffffff;            /* page background */
-  --bg-url: url('/background.png'); /* background image (optional) */
+  --background: #ffffff;           
+  --bg-url: url('/background.png'); 
 
-  /* Text / surfaces */
-  --foreground: #0f1724;         /* slate-like dark text */
-  --card: oklch(0.98 0.02 160);                  /* card background */
+  --foreground: #0f1724;         
+  --card: oklch(0.98 0.02 160);
   --card-foreground: #0f1724;
   --popover: #ffffff;
   --popover-foreground: #0f1724;
 
-  /* Primary / accents (light) */
-  --primary: #73ad9e;               /* calm green (#73AD9E) */
+
+  --primary: #73ad9e;              
   --primary-foreground: #ffffff;
 
-  --secondary: #a7f3d0;             /* soft mint */
-  --secondary-foreground: #052e00;
+  --secondary: #a7f3d0;             
+  --secondary-foreground: oklch(1 0 0);
 
-  /* Muted / subtle */
+  
   --muted: #f1f5f9;
   --muted-foreground: #334155;
 
-  --accent: #8ee7b7;
-  --accent-foreground: #052e00;
+  --accent: oklch(0.7 0.1 176);
+  --accent-foreground: oklch(1 0 0);
 
-  /* Destructive (errors) */
+
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  /* Borders, inputs, rings */
-  --border: #e6eef0;
-  --input: #ffffff;
+
+  --border: oklch(0.9 0.005 150);
+  --input: oklch(0.98 0.005 150);
   --ring: #73ad9e;
 
-  /* Chart palette (light-friendly) */
+ 
   --chart-1: #bbf7d0;
   --chart-2: #86efac;
   --chart-3: #94a3b8;
   --chart-4: #f87171;
   --chart-5: #ccfbf1;
 
-  /* Radii / layout tokens */
+
   --radius: 0.5rem;
 
-  /* Header / sidebar */
+
   --header: #93DCB0;
-  --sidebar: #ffffff;
+  --sidebar: oklch(0.98 0.02 160);
   --sidebar-foreground: #0f1724;
   --sidebar-primary: #73ad9e;
   --sidebar-primary-foreground: #ffffff;
