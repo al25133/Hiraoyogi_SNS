@@ -134,6 +134,7 @@ export default function ProfilePage() {
   }
 
   const publishedStories = stories.filter((story) => story.isPublished)
+  const unreadCount = notifications.filter((n) => !n.isRead).length
 
   return (
     <div className="min-h-screen bg-background">
@@ -161,17 +162,27 @@ export default function ProfilePage() {
       </header>
 
       {/* メインコンテンツ */}
-      <main className="max-w-4xl mx-auto p-4">
+      <main className="max-w-4xl mx-auto p-4 mt-6">
         <Tabs defaultValue="profile" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            <TabsTrigger value="profile" className="text-base">
+          {/* 👇 スマホは縦並び、PCは横並び */}
+          <TabsList className="flex flex-col sm:grid sm:grid-cols-3 w-full">
+            <TabsTrigger
+              value="profile"
+              className="text-base data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none"
+            >
               基本情報
             </TabsTrigger>
-            <TabsTrigger value="stories" className="text-base">
+            <TabsTrigger
+              value="stories"
+              className="text-base data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none"
+            >
               投稿した昔話 ({publishedStories.length})
             </TabsTrigger>
-            <TabsTrigger value="drafts" className="text-base">
-              通知 ({notifications.filter((n) => !n.isRead).length})
+            <TabsTrigger
+              value="drafts"
+              className="text-base data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none"
+            >
+              通知{unreadCount > 0 ? ` (${unreadCount})` : ""}
             </TabsTrigger>
           </TabsList>
 
