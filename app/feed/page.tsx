@@ -1,3 +1,4 @@
+// app/feed/page.tsx あるいは pages/feed.tsx 等、既存ファイルをそのまま差し替えてください
 "use client"
 
 import { useState } from "react"
@@ -6,10 +7,17 @@ import { StoryDetailModal } from "@/components/story/story-detail-modal"
 import { BottomNav } from "@/components/navigation/bottom-nav"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { PlusCircle, Search, User } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { withBase } from "@/utils/withBase" // 追加
 
 // サンプルデータ
 const sampleStories = [
@@ -200,7 +208,15 @@ export default function FeedPage() {
       <header className="bg-header border-b sticky top-0 z-10 w-full">
         <div className="max-w-4xl mx-auto p-4">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-            <Image  src="/header.png" alt="StarRe Logo"  width={1294} height={119} className="h-8 sm:h-10 w-auto" unoptimized/>
+            {/* header.png を withBase で参照、unoptimized を付けて最適化絡みの問題を回避 */}
+            <Image
+              src={withBase("/header.png")}
+              alt="StarRe Logo"
+              width={1294}
+              height={119}
+              className="h-8 sm:h-10 w-auto"
+              unoptimized
+            />
             <div className="flex items-center gap-3 sm:gap-6">
               <Link href="/post">
                 <Button size="sm" className="gap-2">
