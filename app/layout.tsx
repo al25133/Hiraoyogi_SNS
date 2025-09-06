@@ -1,10 +1,7 @@
-// app/layout.tsx
 import type React from "react"
 import { Noto_Sans_JP, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-// ここではローカルの ThemeProvider（next-themes をラップしたもの）が components にある想定
-// 既に components/theme-provider.tsx があるのでそれを使います（props を渡せます）
 import { ThemeProvider } from "@/components/theme-provider"
 
 const notoSansJP = Noto_Sans_JP({
@@ -23,13 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
   return (
-    // SSR/CSR でテーマが切り替わったときに起きる hydration mismatch を緩和するため suppressHydrationWarning を追加
-    <html lang="ja" suppressHydrationWarning className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
+   <html lang="ja" suppressHydrationWarning className={`${notoSansJP.variable} ${jetbrainsMono.variable}`}>
       <body
         className="font-sans antialiased min-h-screen bg-cover bg-center"
         style={
           {
-            // base path を使って背景画像を参照（既存ロジックを踏襲）
             ["--bg-url" as any]: `url(${base}/background.png)`,
           } as React.CSSProperties
         }

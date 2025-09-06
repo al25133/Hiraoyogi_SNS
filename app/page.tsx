@@ -1,16 +1,14 @@
-// app/page.tsx もしくは pages/index.tsx（あなたの実際の配置に合わせて上書きしてください）
 "use client"
 
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
-import { withBase } from "@/utils/withBase" // 追加: utils/withBase.ts を作ってある前提
+import { withBase } from "@/utils/withBase"
 
 export default function HomePage() {
   const router = useRouter()
 
   useEffect(() => {
-    // 実際のアプリでは認証状態をチェックしてからリダイレクト
     router.push("/feed")
   }, [router])
 

@@ -1,4 +1,3 @@
-// app/feed/page.tsx あるいは pages/feed.tsx 等、既存ファイルをそのまま差し替えてください
 "use client"
 
 import { useState } from "react"
