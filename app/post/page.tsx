@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { StoryForm } from "@/components/story/story-form"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
@@ -61,8 +62,9 @@ export default function PostPage() {
     setIsSubmitted(true)
 
     // 1秒後にフィードページにリダイレクト
-    setTimeout(() => { window.location.href = "/feed" }, 1000)
-  }
+    setTimeout(() => {
+      router.push("/feed")
+    }, 1000)
 
   if (isSubmitted) {
     return (
