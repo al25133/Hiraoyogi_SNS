@@ -61,9 +61,7 @@ export default function PostPage() {
     setIsSubmitted(true)
 
     // 1秒後にフィードページにリダイレクト
-    setTimeout(() => {
-      window.location.href = "/feed"
-    }, 1000)
+    setTimeout(() => { window.location.href = "/feed" }, 1000)
   }
 
   if (isSubmitted) {
