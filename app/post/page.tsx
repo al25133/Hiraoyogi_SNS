@@ -65,6 +65,7 @@ export default function PostPage() {
     setTimeout(() => {
       router.push("/feed")
     }, 1000)
+  }
 
   if (isSubmitted) {
     return (
