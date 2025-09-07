@@ -99,9 +99,12 @@ export function StoryDetailModal({
                 </AvatarFallback>
               </Avatar>
               <div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
                   <h4 className="font-medium text-base">{story.author.name}</h4>
-                  <Badge variant={story.author.type === "grandparent" ? "default" : "secondary"} className="text-xs">
+                  <Badge
+                    variant={story.author.type === "grandparent" ? "default" : "secondary"}
+                    className="text-xs w-fit"
+                  >
                     {story.author.type === "grandparent" ? "おじいちゃん・おばあちゃん" : "お孫さん"}
                   </Badge>
                 </div>
