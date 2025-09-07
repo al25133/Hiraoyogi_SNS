@@ -1,28 +1,36 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { StoryForm } from "@/components/story/story-form"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { STORAGE_STORIES_KEY, FLASH_KEY } from "@/lib/constants"
 
 const STORAGE_STORIES_KEY = "starre_stories"
-const FLASH_KEY = "starre_flash"
+const FLASH_KEY = "starre_flash" // ← ここを必ず定義する
 
 export default function PostPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const router = useRouter()
+  const timeoutRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      // コンポーネントがアンマウントされるときにタイマーをクリア
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
 
   const handleStorySubmit = (story: any) => {
-    console.log("語られた昔話:", story)
-
     try {
       if (typeof window !== "undefined") {
-        // 既存ストーリーを読み込む（無ければ空配列）
         const raw = localStorage.getItem(STORAGE_STORIES_KEY)
         const current = raw ? JSON.parse(raw) : []
 
-        // 新しい story を整形（StoryForm が渡す構造に合わせて必要なフィールドを取る）
         const newStory = {
           id: `${Date.now()}`,
           title: story?.title ?? "",
@@ -39,17 +47,14 @@ export default function PostPage() {
           isPublished: true,
         }
 
-        // 先頭に追加して保存
         const next = [newStory, ...current]
         localStorage.setItem(STORAGE_STORIES_KEY, JSON.stringify(next))
 
-        // フラッシュをセット（feed 側で1回表示して削除する想定）
         const flash = { message: "投稿が保存されました", type: "success", createdAt: Date.now() }
         localStorage.setItem(FLASH_KEY, JSON.stringify(flash))
       }
     } catch (err) {
       console.error("localStorage 保存エラー:", err)
-      // エラー時のフラッシュ（任意）
       try {
         if (typeof window !== "undefined") {
           const flash = { message: "投稿の保存に失敗しました", type: "error", createdAt: Date.now() }
@@ -58,11 +63,10 @@ export default function PostPage() {
       } catch {}
     }
 
-    // UI: 完了表示に切り替え
     setIsSubmitted(true)
 
-    // 1秒後にフィードページにリダイレクト
-    setTimeout(() => {
+    // タイマーを保持しておく（アンマウント時にクリアできるように）
+    timeoutRef.current = window.setTimeout(() => {
       router.push("/feed")
     }, 1000)
   }
@@ -92,7 +96,6 @@ export default function PostPage() {
           </Link>
         </div>
 
-        {/* 元の StoryForm UI をそのまま使う */}
         <StoryForm onSubmit={handleStorySubmit} />
       </div>
     </div>
