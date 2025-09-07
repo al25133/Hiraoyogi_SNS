@@ -230,14 +230,17 @@ const sampleComments: Record<string, Comment[]> = {
 
 export default function FeedPage() {
   const router = useRouter()
-  const [stories, setStories] = useState<Story[]>([])
-  const [comments, setComments] = useState<Record<string, Comment[]>>({})
+  const [stories, setStories] = useState<any[]>([])
+  const [comments, setComments] = useState<Record<string, any[]>>({})
   const [searchTerm, setSearchTerm] = useState("")
   const [categoryFilter, setCategoryFilter] = useState("all")
   const [eraFilter, setEraFilter] = useState("all")
-  const [selectedStory, setSelectedStory] = useState<Story | null>(null)
+  const [selectedStory, setSelectedStory] = useState<any | null>(null)
 
-  // 初回ロード：localStorage から読み込み、なければサンプルを保存
+  // フラッシュメッセージ state
+  const [flash, setFlash] = useState<{ message: string; type?: string } | null>(null)
+
+  // 初回ロード：stories/comments とフラッシュを読み込む
   useEffect(() => {
     if (typeof window === "undefined") return
 
@@ -266,10 +269,30 @@ export default function FeedPage() {
       console.error("comments load failed", e)
       setComments(sampleComments)
     }
+
+    // フラッシュ読み取り（1回だけ）
+    try {
+      const rawF = localStorage.getItem(FLASH_KEY)
+      if (rawF) {
+        const parsed = JSON.parse(rawF)
+        if (parsed && parsed.message) {
+          setFlash({ message: parsed.message, type: parsed.type })
+        }
+        localStorage.removeItem(FLASH_KEY)
+      }
+    } catch (e) {
+      console.error("flash read error", e)
+    }
   }, [])
 
-  // 永続化ユーティリティ
-  const persistStories = (next: Story[]) => {
+  // フラッシュ自動消去（数秒後）
+  useEffect(() => {
+    if (!flash) return
+    const t = setTimeout(() => setFlash(null), 4500)
+    return () => clearTimeout(t)
+  }, [flash])
+
+  const persistStories = (next: any[]) => {
     setStories(next)
     if (typeof window !== "undefined") {
       try {
@@ -280,7 +303,7 @@ export default function FeedPage() {
     }
   }
 
-  const persistComments = (next: Record<string, Comment[]>) => {
+  const persistComments = (next: Record<string, any[]>) => {
     setComments(next)
     if (typeof window !== "undefined") {
       try {
@@ -291,26 +314,23 @@ export default function FeedPage() {
     }
   }
 
-  // Like トグル
   const handleLike = (storyId: string) => {
-    const next = stories.map((s) =>
+    const next = stories.map((s: any) =>
       s.id === storyId ? { ...s, isLiked: !s.isLiked, likes: s.isLiked ? s.likes - 1 : s.likes + 1 } : s,
     )
     persistStories(next)
   }
 
-  // Revival トグル
   const handleRevival = (storyId: string) => {
-    const next = stories.map((s) =>
+    const next = stories.map((s: any) =>
       s.id === storyId ? { ...s, isRevived: !s.isRevived, revivals: s.isRevived ? s.revivals - 1 : s.revivals + 1 } : s,
     )
     persistStories(next)
   }
 
-  // コメント追加
   const handleAddComment = (storyId: string, content: string) => {
     if (!content.trim()) return
-    const newComment: Comment = {
+    const newComment = {
       id: `c${Date.now()}`,
       content: content.trim(),
       author: { name: "あなた", type: "user" },
@@ -322,26 +342,21 @@ export default function FeedPage() {
     nextComments[storyId] = [...(nextComments[storyId] || []), newComment]
     persistComments(nextComments)
 
-    const nextStories = stories.map((s) => (s.id === storyId ? { ...s, comments: (s.comments || 0) + 1 } : s))
+    const nextStories = stories.map((s: any) => (s.id === storyId ? { ...s, comments: (s.comments || 0) + 1 } : s))
     persistStories(nextStories)
   }
 
-  // コメントのいいね
   const handleLikeComment = (commentId: string) => {
     const nextComments = Object.fromEntries(
       Object.entries(comments || {}).map(([storyId, list]) => [
         storyId,
-        list.map((c) => (c.id === commentId ? { ...c, isLiked: !c.isLiked, likes: c.isLiked ? c.likes - 1 : c.likes + 1 } : c)),
+        list.map((c: any) => (c.id === commentId ? { ...c, isLiked: !c.isLiked, likes: c.isLiked ? c.likes - 1 : c.likes + 1 } : c)),
       ]),
     )
     persistComments(nextComments)
   }
 
-  const handleOpenPost = () => {
-    router.push("/post")
-  }
-
-  const filtered = stories.filter((s) => {
+  const filtered = stories.filter((s: any) => {
     const term = searchTerm.trim().toLowerCase()
     const matchesSearch = !term || s.title.toLowerCase().includes(term) || s.content.toLowerCase().includes(term)
     const matchesCategory = categoryFilter === "all" || s.category === categoryFilter
@@ -356,10 +371,13 @@ export default function FeedPage() {
           <div className="flex items-center justify-between gap-3 mb-4">
             <Image src={withBase("/header.png")} alt="header" width={200} height={40} className="h-8 w-auto" unoptimized />
             <div className="flex items-center gap-2">
-              <Button size="sm" onClick={handleOpenPost} className="gap-2">
-                <PlusCircle className="h-4 w-4" />
-                <span className="hidden sm:inline">語る</span>
-              </Button>
+              <Link href="/post">
+                <Button size="sm" className="gap-2">
+                  <PlusCircle className="h-4 w-4" />
+                  <span className="hidden sm:inline">語る</span>
+                </Button>
+              </Link>
+
               <Link href="/profile">
                 <Button variant="outline" size="icon" className="rounded-full">
                   <User className="h-5 w-5" />
@@ -412,6 +430,20 @@ export default function FeedPage() {
             </div>
           </div>
         </div>
+
+        {/* フラッシュ（header の直下に出す） */}
+        {flash && (
+          <div className="w-full bg-transparent">
+            <div
+              role="alert"
+              className={`max-w-4xl mx-auto px-4 py-2 text-sm rounded-b-md mt-0 ${
+                flash.type === "error" ? "bg-red-50 text-red-800 border-red-100" : "bg-green-50 text-green-800 border-green-100"
+              } border`}
+            >
+              {flash.message}
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="max-w-4xl mx-auto p-4">
@@ -421,7 +453,7 @@ export default function FeedPage() {
               <p className="text-lg text-muted-foreground">条件に合う昔話が見つかりませんでした</p>
             </div>
           ) : (
-            filtered.map((s) => (
+            filtered.map((s: any) => (
               <StoryCard
                 key={s.id}
                 story={s}
