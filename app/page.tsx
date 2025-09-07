@@ -17,7 +17,7 @@ export default function HomePage() {
       <div className="text-center">
         <Image
           src={withBase("/logo.png")}
-          alt="StarRe Logo"
+          alt="re:StarRe Logo"
           className="w-auto"
           width={732}
           height={341}
