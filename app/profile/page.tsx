@@ -159,7 +159,6 @@ export default function ProfilePage() {
       {/* メインコンテンツ */}
       <main className="max-w-4xl mx-auto p-4 mt-6">
         <Tabs defaultValue="profile" className="space-y-6">
-          {/* 👇 スマホは縦並び、PCは横並び */}
           <TabsList className="flex flex-col sm:grid sm:grid-cols-3 w-full">
             <TabsTrigger
               value="profile"

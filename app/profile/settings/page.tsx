@@ -164,37 +164,40 @@ export default function SettingsPage() {
               <Label className="text-base">テーマ</Label>
 
               {/* ライト / ダーク / システム の三択に */}
-              <div className="flex gap-2">
-                <Button
-                  variant={mounted && userTheme === "light" ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setTheme("light")}
-                >
-                  ライト
-                </Button>
+              <div className="flex gap-2 overflow-x-auto no-scrollbar">
+                 <div className="flex flex-col sm:flex-row gap-2">
+                    <Button
+                      variant={mounted && userTheme === "light" ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setTheme("light")}
+                      className="w-full sm:w-auto"
+                    >
+                      ライト
+                    </Button>
 
-                <Button
-                  variant={mounted && userTheme === "dark" ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setTheme("dark")}
-                >
-                  ダーク
-                </Button>
+                    <Button
+                      variant={mounted && userTheme === "dark" ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setTheme("dark")}
+                      className="w-full sm:w-auto"
+                    >
+                      ダーク
+                    </Button>
 
-                <Button
-                  variant={mounted && userTheme === "system" ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setTheme("system")}
-                >
-                  <Monitor className="h-4 w-4 mr-2" />
-                  システムに従う
-                </Button>
+                    <Button
+                      variant={mounted && userTheme === "system" ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setTheme("system")}
+                      className="w-full sm:w-auto whitespace-nowrap"
+                    >
+                      <Monitor className="h-4 w-4 mr-2" />
+                      システムに従う
+                    </Button>
+                  </div>
               </div>
             </div>
           </CardContent>
         </Card>
-
-        {/* 通知 / ヘルプは既存ロジックのまま */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl font-serif text-primary">
