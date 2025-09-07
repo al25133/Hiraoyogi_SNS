@@ -16,6 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 })
 
+export const metadata: Metadata = {
+    title: "re:StarRe -未来つなぎ-",
+      description: "昔話を通じて世代をつなぐSNS",
+      }
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
