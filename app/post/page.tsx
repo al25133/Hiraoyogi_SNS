@@ -37,7 +37,7 @@ export default function PostPage() {
           content: story?.content ?? "",
           category: story?.category ?? "other",
           era: story?.era ?? "unknown",
-          author: story?.author ?? { name: "あなた", type: "grandparent" },
+          author: story?.author ?? { name: "田村花子（あなた）", type: "grandparent" },
           createdAt: story?.createdAt ?? new Date().toISOString(),
           likes: 0,
           comments: 0,

@@ -333,7 +333,7 @@ export default function FeedPage() {
     const newComment = {
       id: `c${Date.now()}`,
       content: content.trim(),
-      author: { name: "あなた", type: "user" },
+      author: { name: "田村花子（あなた）", type: "grandparent" },
       createdAt: new Date().toISOString(),
       likes: 0,
       isLiked: false,
